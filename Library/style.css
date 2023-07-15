@@ -1,6 +1,5 @@
 body {
  color:rgb(143, 143, 143);
-
 }
 
 @font-face { 
@@ -19,8 +18,7 @@ body {
     src: url("fonts/InterRegular/InterRegular.eot?#iefix")format("embedded-opentype"),
     url("fonts/InterRegular/InterRegular.woff") format("woff"),
     url("fonts/InterRegular/Inter-Regular.ttf") format("truetype");
-    font-style: normal;
-    
+    font-style: normal;   
 }
 
 @font-face { 
@@ -32,8 +30,6 @@ body {
     font-style: normal;
     font-weight: 700;
 }
-
-
 
 .warp {
     width: 1440px;
@@ -52,7 +48,6 @@ header{
    font-family: ForumRegular;
    font-size: 30px;
    font-style: regular;
-
    margin-left: 20px;
    margin-top: 20px;
    margin-bottom: 20px;
@@ -65,8 +60,7 @@ header{
 .navbutton{
     display: flex;
     color: #FFF;
-    margin: auto 0px auto auto;
-    
+    margin: auto 0px auto auto; 
 }
 
 .nav-button{
@@ -79,7 +73,6 @@ header{
      list-style: none;
      text-decoration: none;
      margin: auto 15px auto 15px;
-     
 }
 
 a {
@@ -92,4 +85,14 @@ a {
     flex-shrink: 0;
     position: relative;
     margin: 31px 20px 31px 25px;  
+}
+
+.welcome-background{
+    width: 1440px;
+    height: 600px;
+    background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%), url(image/fonlib.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
 }
