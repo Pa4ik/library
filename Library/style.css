@@ -1,3 +1,95 @@
 body {
- color:aqua;
+ color:rgb(143, 143, 143);
+
+}
+
+@font-face { 
+    font-family: "ForumRegular";
+    src: url("fonts/ForumRegular/ForumRegular.eot");
+    src: url("fonts/ForumRegular/ForumRegular.eot?#iefix")format("embedded-opentype"),
+    url("fonts/ForumRegular/ForumRegular.woff"),
+    url("fonts/ForumRegular/ForumRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face { 
+    font-family: "InterRegular";
+    src: url("fonts/InterRegular/InterRegular.eot");
+    src: url("fonts/InterRegular/InterRegular.eot?#iefix")format("embedded-opentype"),
+    url("fonts/InterRegular/InterRegular.woff") format("woff"),
+    url("fonts/InterRegular/Inter-Regular.ttf") format("truetype");
+    font-style: normal;
+    
+}
+
+@font-face { 
+    font-family: "InterBold";
+    src: url("fonts/InterBold/InterBold.eot");
+    src: url("fonts/InterBold/InterBold.eot?#iefix")format("embedded-opentype"),
+    url("fonts/InterBold/InterBold.woff") format("woff"),
+    url("fonts/InterBold/Inter-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+
+
+.warp {
+    width: 1440px;
+    margin: auto;
+}
+
+header{
+    background: #0C0C0E;
+    display: flex;
+    width: 1440px;
+    height: 90px;
+}
+
+.headtext{
+   color: #ffffff;
+   font-family: ForumRegular;
+   font-size: 30px;
+   font-style: regular;
+
+   margin-left: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   letter-spacing: 0.6px;
+   text-align: center;
+   line-height:50px;
+   letter-spacing: 0.6px;
+}
+
+.navbutton{
+    display: flex;
+    color: #FFF;
+    margin: auto 0px auto auto;
+    
+}
+
+.nav-button{
+     color: #FFF;
+     font-family: InterRegular;
+     font-size: 20px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: 50px;
+     list-style: none;
+     text-decoration: none;
+     margin: auto 15px auto 15px;
+     
+}
+
+a {
+    text-decoration:none;
+  }
+
+.profil {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    position: relative;
+    margin: 31px 20px 31px 25px;  
 }
