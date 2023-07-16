@@ -1,10 +1,15 @@
 body {
- color:rgb(143, 143, 143);
+ box-sizing: border-box;
+ background-color: rgb(146, 146, 146);
+ width: 100%;
+ margin: auto;
+
 }
 
 .warp {
     width: 1440px;
     margin: auto;
+    background-color: #ffffff;
 }
 
 header{
@@ -18,7 +23,6 @@ header{
    color: #ffffff;
    font-family: 'Forum', cursive;
    font-size: 30px;
-   font-style: regular;
    font-weight: 400;
    margin-left: 20px;
    margin-top: 20px;
@@ -33,6 +37,10 @@ header{
     display: flex;
     color: #FFF;
     margin: auto 0px auto auto; 
+}
+
+.nav-button-list{
+    display: flex;
 }
 
 .nav-button{
@@ -98,15 +106,6 @@ a {
     line-height: 50px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    padding-right: 10px; 
-}
-
-.text-brooklyn{
-    padding-left: 10px;
-}
-
-.text-library{
-    padding-left: 13px;
 }
 
 h2{
@@ -119,6 +118,7 @@ h2{
     letter-spacing: 2px;
     text-transform: capitalize;
     text-align: center;
+    margin-top: 20px;
 }
 
 .linetext{
@@ -126,4 +126,64 @@ h2{
     height: 1px;
     flex-shrink: 0;
     background: #0C0C0E;
+    margin-top: -14px;
+}
+
+.about{
+    background-color: #FFF;
+}
+
+.about-text{
+    width: 1440px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; 
+    margin-top: 40px;
+}
+
+.about-img{
+    justify-content: space-around;
+}
+
+.slider{
+    width: 450px;
+    height: 560px;
+    flex-shrink: 0;
+    margin-left: 21px;
+    margin-top: 19px;
+}
+
+.slider-button {
+    display: flex;
+    justify-content: center;
+}
+
+.slider-button-back{
+    background-color: #fff;
+    padding: 5px;
+    margin-top: 31px;
+    margin-bottom: 31px;
+    cursor:pointer;
+}
+
+.slider-button-one {
+    background-color: #BB945F;
+    padding: 8px;
+    border-radius: 50px;
+}
+
+.slider-button-two {
+    background-color: #0C0C0E;
+    padding: 8px;
+    border-radius: 50px;
+}
+
+.slider-button-three {
+    background-color: #0C0C0E;
+    padding: 8px;
+    border-radius: 50px;
 }
