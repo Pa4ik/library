@@ -166,7 +166,7 @@ h2{
     background-color: #fff;
     padding: 5px;
     margin-top: 31px;
-    margin-bottom: 31px;
+    margin-bottom: 35px;
     cursor:pointer;
 }
 
@@ -186,4 +186,114 @@ h2{
     background-color: #0C0C0E;
     padding: 8px;
     border-radius: 50px;
+}
+
+.favorites-text{
+    color: #000;
+    margin-left: 22px;
+    margin-top: 39px;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+
+.season-button{
+    display: grid;
+    
+}
+
+.season-button-back{
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 150px 150px 200px 200px;
+    gap: 30px 30px;
+}
+
+.label-season{
+    padding: 5px;
+    cursor: pointer;
+}
+ 
+.input-season{
+  display:none;
+}
+
+.span-fake{
+  display:inline-block;
+  width:12px;
+  height: 12px;
+  border: 3px solid black;
+  border-radius:50% 50%;
+  position:relative;
+  cursor: pointer;
+  vertical-align: -4px;
+  
+}
+
+.span-fake::before{
+  content:"";
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+  display:block;
+  width:8px;
+  height:8px;
+  background-color:black;
+  border-radius:50% 50%;
+  opacity:0;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.input-season:checked + .span-fake::before {
+      opacity:1;
+      
+  }
+
+.input-season:checked ~ .span-season{
+    font-weight: 700;
+  }
+
+.span-season{
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    line-height: normal;
+    margin-left: 16px;
+
+}
+
+.label-season-winter{
+    padding: 5px;
+    cursor: pointer;
+    justify-content: flex-start;
+    margin-left: 16px;
+}
+
+.label-season-Spring{
+    padding: 5px;
+    cursor: pointer;
+    justify-content: flex-start; 
+    margin-left: 29px;  
+}
+
+.label-season-summer{
+    padding: 5px;
+    cursor: pointer;
+    justify-content: flex-start;
+    margin-left: 38px;     
+}
+
+.label-season-autumn {
+    padding: 5px;
+    cursor: pointer;
+    justify-content: flex-start; 
+    margin-left: 13px;     
 }
