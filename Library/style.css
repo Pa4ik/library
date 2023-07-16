@@ -399,6 +399,7 @@ margin-bottom: 0px;
 .book-text{
     color: #000;
     width: 357px;
+    height: 320px;
     font-family: Inter;
     font-size: 15px;
     font-style: normal;
@@ -427,26 +428,9 @@ margin-bottom: 0px;
   position: absolute;
   margin-left: -181px
 }
-.buy-book2{
-    width: 75px;
-    height: 30px;
-    flex-shrink: 0;
-    border-radius: 2px;
-    border: 1px solid #0C0C0E;
-    color: #0C0C0E;
-    text-align: center;
-    font-family: Inter;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 1px;
-    position: absolute;
-    margin-left: -181px;
-    margin-top: 40px;
-}
 
-.buy-book4{
+
+.buy-book-off{
     width: 75px;
    height: 30px;
    flex-shrink: 0;
@@ -461,15 +445,13 @@ margin-bottom: 0px;
    line-height: normal;
    letter-spacing: 1px;
    position: absolute;
-   margin-left: -181px;
-   margin-top: 80px;   
+   margin-left: -181px; 
 }
 
-.buy-book4:disabled{
+.buy-book-off:disabled{
     border-radius: 2px;
     border: 1px solid #BB945F;
     background: #BB945F;
-
 }
 
 .buy-book:hover{
@@ -478,29 +460,8 @@ margin-bottom: 0px;
     background: #BB945F;
   }
 
-  .buy-book2:hover{
-    border-radius: 2px;
-    border: 1px solid #BB945F;
-    background: #BB945F;
-   
-  }
-
-.winter-book-1{
+.winter-book{
     position: relative;
     bottom: 255px;
     left: 389px;
 }
-
-.winter-book-2{
-    position: relative;
-    bottom: 215px;
-    left: 389px;
-}
-
-.winter-book-4 {
-    position: relative;
-    bottom: 175px;
-    left: 389px;
-
-}
-
