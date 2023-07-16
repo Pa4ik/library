@@ -297,3 +297,210 @@ h2{
     justify-content: flex-start; 
     margin-left: 13px;     
 }
+
+.Winter-book-list{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.book-list{
+    flex-wrap: wrap;   
+}
+.first-book{
+    width: 548px;
+    height: 553px;
+    flex-shrink: 0;
+    border: 1px solid #000;
+    background: #FFF;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-top: 35px;
+    margin-right: 260px;
+}
+
+.second-book{
+    width: 548px;
+    height: 553px;
+    flex-shrink: 0;
+    border: 1px solid #000;
+    background: #FFF;
+    margin-top: 35px;
+}
+
+.third-book{
+    width: 548px;
+    height: 553px;
+    flex-shrink: 0;
+    border: 1px solid #000;
+    background: #FFF;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 260px;
+}
+
+.fourth-book{
+    width: 548px;
+    height: 553px;
+    flex-shrink: 0;
+    border: 1px solid #000;
+    background: #FFF;
+    margin-top: 40px;
+}
+
+
+
+.Staff-Picks{
+    color: #000;
+font-family: Forum;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 40px; /* 200% */
+letter-spacing: 2px;
+text-transform: capitalize;
+margin-left: 20px;
+margin-top: 15px;
+margin-bottom: 0px;
+}
+
+.linebook{
+    width: 60px;
+    height: 1px;
+    margin-left: 20px;
+    margin-top: -2px;
+    background: #BB945F;
+}
+
+.name-book{
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+
+.writer-book{
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-left: 20px;
+}
+
+.book-text{
+    color: #000;
+    width: 357px;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; 
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-left: 20px;
+  
+}
+
+.buy-book{
+  width: 75px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  position: absolute;
+  margin-left: -181px
+}
+.buy-book2{
+    width: 75px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    position: absolute;
+    margin-left: -181px;
+    margin-top: 40px;
+}
+
+.buy-book4{
+    width: 75px;
+   height: 30px;
+   flex-shrink: 0;
+   border-radius: 2px;
+   border: 1px solid #BB945F;
+   color: #BB945F;
+   text-align: center;
+   font-family: Inter;
+   font-size: 10px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+   letter-spacing: 1px;
+   position: absolute;
+   margin-left: -181px;
+   margin-top: 80px;   
+}
+
+.buy-book4:disabled{
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    background: #BB945F;
+
+}
+
+.buy-book:hover{
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    background: #BB945F;
+  }
+
+  .buy-book2:hover{
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    background: #BB945F;
+   
+  }
+
+.winter-book-1{
+    position: relative;
+    bottom: 255px;
+    left: 389px;
+}
+
+.winter-book-2{
+    position: relative;
+    bottom: 215px;
+    left: 389px;
+}
+
+.winter-book-4 {
+    position: relative;
+    bottom: 175px;
+    left: 389px;
+
+}
+
