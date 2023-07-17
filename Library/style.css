@@ -298,7 +298,7 @@ h2{
     margin-left: 13px;     
 }
 
-.Winter-book-list{
+.book-list{
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -464,4 +464,19 @@ margin-bottom: 0px;
     position: relative;
     bottom: 255px;
     left: 389px;
+}
+
+.winter-book-list{
+}
+
+.spring-book-list{
+    display: none;
+}
+
+.summer-book-list{
+    display: none;   
+}
+
+.autumn-book-list{
+    display: none;   
 }
