@@ -929,7 +929,7 @@ margin-bottom: 0px;
 .social-address{
     display: grid;
     justify-items: start;
-    margin-top: 4px;
+    margin-top: 20px;
     margin-left: 20px;
     gap: 13px;
 }
@@ -956,6 +956,12 @@ margin-bottom: 0px;
     line-height: 20px;
 }
 
+.working-hours{
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
 .working-hours-lib{
     color: #FFF;
     text-align: right;
@@ -964,4 +970,70 @@ margin-bottom: 0px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px; 
+    margin: 0px;
+    margin-right: 20px;
+}
+
+.footer-line{
+    width: 1400px;
+    height: 1px;
+    background: #FFF;
+    margin-top: 27px;
+}
+
+.rs-school-github{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.year-lib{
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    letter-spacing: 2px;
+    margin: 37px 31px 20px 22px;
+}
+
+.rs-school{
+    display: flex;
+    width: auto;
+    height: 22px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    letter-spacing: 2px;
+    margin-top: 15px;
+    margin-left: 158px;
+}
+
+.git-link{
+    display: flex;
+    width: auto;
+    height: 22px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    margin-top: 14px;
+    margin-right: 20px;
 }
