@@ -54,6 +54,15 @@ header{
      margin: auto 15px auto 15px;
 }
 
+.navigation{
+    color: #FFF; 
+    transition: 0.8s;
+}
+
+.navigation:hover{
+    color: #BB945F; 
+}
+
 a {
     text-decoration:none;
     color: #000;
@@ -440,7 +449,8 @@ margin-bottom: 0px;
   line-height: normal;
   letter-spacing: 1px;
   position: absolute;
-  margin-left: -181px
+  margin-left: -181px;
+  transition: 0.8s;
 }
 
 .buy-book-off{
@@ -811,6 +821,7 @@ margin-bottom: 0px;
     line-height: normal;
     letter-spacing: 1px;
     margin-bottom: 10px;
+    transition: 0.8s;
 }
 
 .button-check-card:hover{
@@ -866,7 +877,7 @@ margin-bottom: 0px;
     font-weight: 700;
     line-height: normal;
     letter-spacing: 1px;
-   
+    transition: 0.8s;
 }
 
 .button-sing-up:hover{
@@ -890,10 +901,11 @@ margin-bottom: 0px;
     line-height: normal;
     letter-spacing: 1px;
     margin-left: 16px;
+    transition: 0.8s;
 }
 
 .button-log-in:hover{
     border-radius: 2px;
     border: 1px solid #BB945F;
-    background: #BB945F;
+    background: #BB945F; 
 }
