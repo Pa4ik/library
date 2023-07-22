@@ -12,23 +12,25 @@
 <body>
     <div class="warp">
         <header>
-            <h1 class="headtext">Brooklyn Public Library</h1>
-            <nav class="navbutton">
-              <ul class="nav-button-list">
-                <li class="nav-button"><a class="navigation" href="#about">About</a></li>
-                <li class="nav-button"><a class="navigation" href="#favorites">Favorites</a></li>
-                <li class="nav-button"><a class="navigation" href="#coffee-shop">Coffee shop</a></li>
-                <li class="nav-button"><a class="navigation" href="#our-contacts">Contacts</a></li>
-                <li class="nav-button"><a class="navigation" href="#digital-library-cards">Library Card</a></li>
-            </ul>  
-            </nav>
-            <img class="profil" src="icon/icon_profile.svg" alt="profil">
+            <div class="warp-header">
+                <h1 class="headtext">Brooklyn Public Library</h1>
+                <nav class="navbutton">
+                <ul class="nav-button-list">
+                    <li class="nav-button"><a class="navigation" href="#about">About</a></li>
+                    <li class="nav-button"><a class="navigation" href="#favorites">Favorites</a></li>
+                    <li class="nav-button"><a class="navigation" href="#coffee-shop">Coffee shop</a></li>
+                    <li class="nav-button"><a class="navigation" href="#our-contacts">Contacts</a></li>
+                    <li class="nav-button"><a class="navigation" href="#digital-library-cards">Library Card</a></li>
+                </ul>  
+                </nav>
+                <img class="profil" src="icon/icon_profile.svg" alt="profil">
+            </div>
         </header>
         <main>
             <section class="welcome">
                 <div class="welcome-background">
                     <div class="welcome-background-text"><div class="welcome-text">
-                      <h3 class="welcome-text"> welcome&nbsp;<br>to the Brooklyn<br>Library</h3>
+                      <h3 class="welcome-text-h3"> welcome&nbsp;<br>to the Brooklyn<br>Library</h3>
                     </div></div>
                 </div>
             </section>
@@ -37,18 +39,20 @@
                     <h2>About</h2>
                     <hr class="linetext">
                 </div>
-                <div class="about-text">
-                    The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside 
-                </div>
-                <div class="about-img">
-                    <img class="slider" src="image/image1.png" alt="image-1">
-                    <img class="slider" src="image/image2.png" alt="image-2">
-                    <img class="slider" src="image/image3.png" alt="image-3">
-                </div>
-                <div class="slider-button">
-                    <div class="slider-button-back"><div class="slider-button-one"></div></div>
-                    <div class="slider-button-back"><div class="slider-button-two"></div></div>
-                    <div class="slider-button-back"><div class="slider-button-three"></div></div>
+                <div class="warp-about">
+                    <div class="about-text">
+                        The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside 
+                    </div>
+                    <div class="about-img">
+                        <img class="slider" src="image/image1.png" alt="image-1">
+                        <img class="slider" src="image/image2.png" alt="image-2">
+                        <img class="slider" src="image/image3.png" alt="image-3">
+                    </div>
+                    <div class="slider-button">
+                        <div class="slider-button-back"><div class="slider-button-one"></div></div>
+                        <div class="slider-button-back"><div class="slider-button-two"></div></div>
+                        <div class="slider-button-back"><div class="slider-button-three"></div></div>
+                    </div>
                 </div>                
             </section>
             <section class="favorites" id="favorites">
@@ -56,10 +60,11 @@
                     <h2>Favorites</h2>
                     <hr class="linetext">
                 </div>
-                <div class="favorites-text">
+                <div class="warp-favorites">
+                    <div class="favorites-text">
                     Pick favorites of season 
-                </div>
-                <div class="season-button">
+                    </div>
+                    <div class="season-button">
                     <div class="season-button-back">
                          <label class="label-season-winter" for="id1">
                             <input class="input-season" checked type="radio" name="season" value="Winter" id="id1">                   
@@ -83,8 +88,8 @@
                            </label>
                         </div> 
 
-                </div>
-                <div class="favorites-book">
+                    </div>
+                    <div class="favorites-book">
                     <div class="winter-book-list">
                         <div class="book-list">
                             <div class="first-book">
@@ -293,6 +298,7 @@
                                 </div>
                         </div>
                     </div>
+                    </div>
                 </div>                 
             </section>
             <section class="coffee-shop" id="coffee-shop">
@@ -301,11 +307,12 @@
                         <h2>Coffee Shop</h2>
                         <hr class="linetext">
                     </div>
-                    <div class="coffee-shop-text">
+                    <div class="warp-coffee-shop">
+                        <div class="coffee-shop-text">
                       In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation.
                       <span class="coffee-shop-text-two">You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</span> 
-                    </div>
-                    <div class="blok-menu">
+                        </div>
+                        <div class="blok-menu">
                         <div class="coffe-and-tea-menu">
                             <h3 class="name-menu">Coffee & Tea</h3>
                             <div class="catalog-menu-list-item">
@@ -376,6 +383,7 @@
                                 </div> 
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -437,8 +445,9 @@
             </section>
         </main>
         <footer>
-            <div class="footer-lib">   
-                <div class="social-work">        
+            <div class="footer-lib"> 
+                <div class="warp-footer">
+                    <div class="social-work">        
                     <div class="social-address">
                         <div>
                            <a href="https://www.google.com/maps/place/Brooklyn+Public+Library+-+Brooklyn+Heights+Branch/@40.695667,-73.9913949,20z/data=!4m9!1m2!2m1!1s286+Cadman+Plaza,+New+York,+NY+11238,+United+States!3m5!1s0x89c25a49b6395abd:0x5b6c5e44eb578313!8m2!3d40.6956458!4d-73.9912976!16s%2Fg%2F11c4592c3x?entry=ttu" target="_blank"> <span class="address-lib">
@@ -467,12 +476,13 @@
                             </p>
                         </div>
                     </div>
-                </div> 
-                <hr class="footer-line">
-                <div class="rs-school-github">
-                    <p class="year-lib">2023</p>
-                    <a class="rs-school" href="https://rs.school/js-stage0/" target="_blank"><p>The Rolling Scopes School</p></a>
-                    <a class="git-link" href="https://github.com/Pa4ik" target="_blank"><p>Maksim Pachuzheuski</p></a>
+                    </div> 
+                    <hr class="footer-line">
+                    <div class="rs-school-github">
+                        <p class="year-lib">2023</p>
+                        <a class="rs-school" href="https://rs.school/js-stage0/" target="_blank"><p>The Rolling Scopes School</p></a>
+                        <a class="git-link" href="https://github.com/Pa4ik" target="_blank"><p>Maksim Pachuzheuski</p></a>
+                    </div>
                 </div>
             </div>
         </footer>
