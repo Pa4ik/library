@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     box-sizing: border-box;
     width: 100%;
@@ -40,11 +44,12 @@ body {
    .navbutton{
        display: flex;
        color: #FFF;
-       margin: auto 0px auto auto; 
+       margin: auto 0px auto auto;
    }
    
    .nav-button-list{
        display: flex;
+
    }
    
    .nav-button{
@@ -60,14 +65,21 @@ body {
    }
    
    .navigation{
-       color: #FFF; 
-       transition: 0.8s;
+       color: #FFF;
+        text-decoration: none;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        transition: background-size .3s; 
+        transition: 0.8s;    
    }
    
-   .navigation:hover{
-       color: #BB945F; 
-   }
-   
+  .navigation:hover{
+     color: #BB945F;
+     background-size: 100% 2px; 
+  }
+  
    a {
        text-decoration:none;
        color: #000;
@@ -79,8 +91,9 @@ body {
        flex-shrink: 0;
        position: relative;
        margin: 31px 20px 31px 25px;  
+       cursor: pointer;
    }
-   
+
    .welcome{
        height: 600px;
    }
@@ -112,9 +125,7 @@ body {
        align-items: center;
        flex-shrink: 0;
        background: #0C0C0E;
-       margin: 220px 840px 160px auto;
-       
-       
+       margin: 220px 840px 160px auto; 
    }
    
    .welcome-text-h3{
@@ -172,8 +183,7 @@ body {
        font-style: normal;
        font-weight: 400;
        line-height: 40px; 
-       margin-top: 40px;
-       
+       margin-top: 40px;  
    }
    
    .about-img{
@@ -287,8 +297,7 @@ body {
    }
    
    .input-season:checked + .span-fake::before {
-       opacity:1;
-         
+       opacity:1;   
      }
    
    .input-season:checked ~ .span-season{
@@ -304,6 +313,22 @@ body {
        line-height: normal;
        margin-left: 16px;
    }
+
+   .underline-season:after {
+    display: flex;
+    left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+    width: 0;/*задаём длинну линии до наведения курсора*/
+    height: 2px; /*задаём ширину линии*/
+    background-color: #000000; /*цвет линии*/
+    content: "";
+    transition: width 0.3s ease-out; /*время анимации*/
+}
+
+.underline-season:hover:after,
+.underline-season:focus:after {
+    width: 120px; /*значение чтобы ссылка подчёркивалась */
+}
+
    
    .label-season-winter{
        padding: 5px;
@@ -311,22 +336,7 @@ body {
        justify-content: flex-start;
        margin-left: 16px;
    }
-   
-   .span-season:after {
-       display: none;
-       left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
-       width: 0;/*задаём длинну линии до наведения курсора*/
-       height: 2px; /*задаём ширину линии*/
-       background-color: #000000; /*цвет линии*/
-       content: "";
-       transition: width 0.3s ease-out; /*время анимации*/
-   }
-   
-   .span-season:hover:after,
-   .span-season:focus:after {
-       width: 120px; /*значение чтобы ссылка подчёркивалась */
-   }
-   
+     
    .label-season-Spring{
        padding: 5px;
        cursor: pointer;
@@ -369,7 +379,7 @@ body {
        background: #FFF;
        margin-top: 40px;
        margin-left: 20px;
-       margin-top: 35px;
+       margin-top: 33px;
        margin-right: 260px;
    }
    
@@ -379,7 +389,7 @@ body {
        flex-shrink: 0;
        border: 1px solid #000;
        background: #FFF;
-       margin-top: 35px;
+       margin-top: 33px;
    }
    
    .third-book{
@@ -404,16 +414,16 @@ body {
    
    .Staff-Picks{
        color: #000;
-   font-family: Forum;
-   font-size: 20px;
-   font-style: normal;
-   font-weight: 400;
-   line-height: 40px; /* 200% */
-   letter-spacing: 2px;
-   text-transform: capitalize;
-   margin-left: 20px;
-   margin-top: 15px;
-   margin-bottom: 0px;
+       font-family: Forum;
+       font-size: 20px;
+       font-style: normal;
+       font-weight: 400;
+       line-height: 40px; /* 200% */
+       letter-spacing: 2px;
+       text-transform: capitalize;
+       margin-left: 20px;
+       margin-top: 15px;
+       margin-bottom: 0px;
    }
    
    .linebook{
@@ -460,7 +470,6 @@ body {
        letter-spacing: 2px;
        text-transform: capitalize;
        margin-left: 20px;
-     
    }
    
    .buy-book{
@@ -627,8 +636,7 @@ body {
        width: 100px;
        height: 1px;
        background-color: #BB945F;
-       margin-bottom: 47px;
-     
+       margin-bottom: 47px; 
    }
    
    .price-item-menu{
@@ -676,9 +684,7 @@ body {
        text-transform: capitalize;
        margin: 0px 0px 40px 56px;
    }
-
-   
-   
+  
    .our-contacts-block{
        display: flex;
        max-width: 1440px;
@@ -686,6 +692,23 @@ body {
        width: auto;
        margin: auto;
    }
+
+   .color-link{
+        margin: 0px;
+        padding: 0px;
+        text-decoration: none;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        transition: background-size .3s; 
+        transition: 0.8s;
+   }
+
+   .color-link:hover{
+    color: #BB945F;
+    background-size: 100% 2px; 
+ }
 
    .block-contacts{
       display: flex;
@@ -973,7 +996,6 @@ body {
         min-width: 720px;
         width: auto;
         margin: auto;
-       
    }
    
    .social-work{
@@ -999,9 +1021,17 @@ body {
        gap: 5px;
        cursor:pointer;
    }
+
+   .social-media-list{
+       list-style-type:none;
+       display: flex;
+       margin: 0px;
+       padding: 0px;
+   }
    
    .social-media{
        padding: 5px;
+       padding-right: 10px;
    }
    
    .address-lib{
