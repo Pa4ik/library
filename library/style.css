@@ -71,8 +71,8 @@ body {
         background-position: 0% 100%;
         background-repeat: no-repeat;
         background-size: 0% 2px;
-        transition: background-size .3s; 
-        transition: 0.8s;    
+        transition: background-size .4s; 
+        transition: 0.4s;    
    }
    
   .navigation:hover{
@@ -313,23 +313,7 @@ body {
        line-height: normal;
        margin-left: 16px;
    }
-
-   .underline-season:after {
-    display: flex;
-    left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
-    width: 0;/*задаём длинну линии до наведения курсора*/
-    height: 2px; /*задаём ширину линии*/
-    background-color: #000000; /*цвет линии*/
-    content: "";
-    transition: width 0.3s ease-out; /*время анимации*/
-}
-
-.underline-season:hover:after,
-.underline-season:focus:after {
-    width: 120px; /*значение чтобы ссылка подчёркивалась */
-}
-
-   
+ 
    .label-season-winter{
        padding: 5px;
        cursor: pointer;
@@ -488,7 +472,8 @@ body {
      letter-spacing: 1px;
      position: absolute;
      margin-left: -181px;
-     transition: 0.8s;
+     cursor: pointer;
+     transition: 0.3s;
    }
    
    .buy-book-off{
@@ -701,8 +686,8 @@ body {
         background-position: 0% 100%;
         background-repeat: no-repeat;
         background-size: 0% 2px;
-        transition: background-size .3s; 
-        transition: 0.8s;
+        transition: background-size .4s; 
+        transition: 0.4s;
    }
 
    .color-link:hover{
@@ -895,7 +880,8 @@ body {
        line-height: normal;
        letter-spacing: 1px;
        margin-bottom: 10px;
-       transition: 0.8s;
+       cursor: pointer;
+       transition: 0.3s;
    }
    
    .button-check-card:hover{
@@ -951,7 +937,8 @@ body {
        font-weight: 700;
        line-height: normal;
        letter-spacing: 1px;
-       transition: 0.8s;
+       cursor: pointer;
+       transition: 0.3s;
    }
    
    .button-sing-up:hover{
@@ -975,7 +962,8 @@ body {
        line-height: normal;
        letter-spacing: 1px;
        margin-left: 16px;
-       transition: 0.8s;
+       cursor: pointer;
+       transition: 0.3s;
    }
    
    .button-log-in:hover{
