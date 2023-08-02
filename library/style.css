@@ -7,7 +7,7 @@ body {
     width: 100%;
     margin: auto;
    }
-   
+  
    .warp {
        width: auto;
        margin: auto;
@@ -23,7 +23,7 @@ body {
 
    .warp-header{
     max-width: 1440px;
-    min-width: 720px;
+    min-width: auto;
     display: flex;
     width: auto;
     margin: auto;
@@ -41,12 +41,20 @@ body {
       text-align: center;
       line-height:50px;
       letter-spacing: 0.6px;
+      margin-right: auto;
    }
    
    .navbutton{
+       display: none;
        display: flex;
        color: #FFF;
        margin: auto 0px auto auto;
+   }
+
+   @media (max-width: 1100px){
+    .navbutton{
+        display:none;
+    }
    }
    
    .nav-button-list{
@@ -96,6 +104,24 @@ body {
        cursor: pointer;
    }
 
+   .nav-burger{
+     display: none;
+     margin: auto;
+     margin-right: 20px;
+     margin-left: 20px;
+   }
+
+   .hr-burger{
+    width: 45px;
+    flex-shrink: 0;
+   }
+
+   @media (max-width: 1100px){
+    .nav-burger{
+        display:block;
+    }
+   }
+
    .welcome{
        max-width: 1440px;
        height: 600px;
@@ -115,7 +141,7 @@ body {
    
    .welcome-background-text{
     max-width: 1440px;
-    min-width: 720px;
+    min-width: 300px;
     display: flex;
     width: auto;
     margin: auto;
@@ -174,13 +200,12 @@ body {
 
    .warp-about{
     max-width: 1440px;
-    min-width: 720px;
+    min-width: 300px;
     width: auto;
     margin: auto;
    }
    
    .about-text{
-       width: 1440px;
        color: #000;
        text-align: center;
        font-family: Inter;
@@ -236,7 +261,7 @@ body {
    
   .warp-favorites{
     max-width: 1440px;
-    min-width: 720px;
+    min-width: 300px;
     width: auto;
     margin: auto;
   }
@@ -355,6 +380,7 @@ body {
    .book-list{
        display: flex;
        justify-content: flex-start;
+       column-gap: 240px;
        flex-wrap: wrap;
    }
    
@@ -367,10 +393,8 @@ body {
        flex-shrink: 0;
        border: 1px solid #000;
        background: #FFF;
-       margin-top: 40px;
        margin-left: 20px;
        margin-top: 33px;
-       margin-right: 260px;
    }
    
    .second-book{
@@ -380,6 +404,7 @@ body {
        border: 1px solid #000;
        background: #FFF;
        margin-top: 33px;
+       margin-left: 20px;
    }
    
    .third-book{
@@ -390,7 +415,6 @@ body {
        background: #FFF;
        margin-top: 40px;
        margin-left: 20px;
-       margin-right: 260px;
    }
    
    .fourth-book{
@@ -400,6 +424,7 @@ body {
        border: 1px solid #000;
        background: #FFF;
        margin-top: 40px;
+       margin-left: 20px;
    }
    
    .Staff-Picks{
@@ -536,7 +561,7 @@ body {
    
    .warp-coffee-shop{
     max-width: 1440px;
-    min-width: 720px;
+    min-width: 300px;
     width: auto;
     margin: auto;
    }
@@ -572,8 +597,9 @@ body {
    
    .blok-menu{
        display: flex;
-       width: 1440px;
+       width: auto;
        justify-content: space-between;
+       flex-wrap: wrap;
    }
    
    .coffe-and-tea-menu{
@@ -679,7 +705,7 @@ body {
    .our-contacts-block{
        display: flex;
        max-width: 1440px;
-       min-width: 720px;
+       min-width: 300px;
        width: auto;
        margin: auto;
    }
@@ -711,6 +737,7 @@ body {
    .contacts-map{
        display: flex;
        justify-content: space-between;
+       flex-wrap: wrap;
        width: 100%;
        margin: 30px 20px 37px 20px;
    }
@@ -769,7 +796,7 @@ body {
 
    .digital-library-cards{
     max-width: 1440px;
-    min-width: 720px;
+    min-width: 300px;
     width: auto;
     margin: auto;
    }
@@ -785,6 +812,7 @@ body {
        display: flex;
        justify-content: space-between;
        width: 100%;
+       flex-wrap: wrap;
    }
    
    .find-library-card{
@@ -993,7 +1021,7 @@ body {
 
    .warp-footer{
         max-width: 1440px;
-        min-width: 720px;
+        min-width: 300px;
         width: auto;
         margin: auto;
    }
@@ -1064,7 +1092,8 @@ body {
    }
    
    .footer-line{
-       width: 1400px;
+       max-width: 1400px;
+       min-width: 300px;
        height: 1px;
        background: #FFF;
        margin-top: 27px;
@@ -1086,7 +1115,8 @@ body {
        font-weight: 400;
        line-height: 20px; 
        letter-spacing: 2px;
-       margin: 37px 31px 20px 22px;
+       margin: 37px 0px 20px 0px;
+       width: 100px;
    }
    
    .rs-school{
@@ -1105,7 +1135,7 @@ body {
        line-height: 20px; 
        letter-spacing: 2px;
        margin-top: 15px;
-       margin-left: 158px;
+     
    }
    
    .git-link{
