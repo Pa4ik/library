@@ -239,6 +239,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     column-gap: 5px;
+    align-items: center;
    }
   
    .slider{
@@ -327,6 +328,32 @@ body {
        display: block;
     }
    }
+
+   .carret-left {
+    display: none;
+   }
+
+   .carret-right {
+    display: none;
+   }
+
+   @media (max-width: 920px){
+    .carret-left{
+       display: inline;
+       cursor: pointer;
+       margin-bottom: -55px;
+       padding-left: 23px;
+    }
+   }
+
+   @media (max-width: 920px){
+    .carret-right{
+       display: inline;
+       cursor: pointer;
+       margin-bottom: -55px;
+       padding-right: 23px;
+    }
+   }
    
   .warp-favorites{
     max-width: 1440px;
@@ -358,7 +385,7 @@ body {
        gap: 30px;
    }
 
-   @media (max-width:500px){
+   @media (max-width:720px){
     .season-button-back{
         display: flex;
         flex-wrap: wrap;
@@ -1311,6 +1338,8 @@ body {
        height: 1px;
        background: #FFF;
        margin-top: 27px;
+       margin-left: 20px;
+       margin-right: 20px;
    }
    
    .rs-school-github{
