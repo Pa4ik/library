@@ -6,6 +6,7 @@ body {
     box-sizing: border-box;
     width: 100%;
     margin: auto;
+    overflow-x: hidden;
    }
   
    .warp {
@@ -53,13 +54,36 @@ body {
 
    @media (max-width: 1100px){
     .navbutton{
-        display:none;
+        position: fixed;
+        right: 0;
+        top: 60px;
+        z-index: 1000;
+        background-color: #0C0C0E;
+        transform: translateX(300%);
+        transition: transform 0.6s ease-in-out;
     }
+    .navbutton--visibl{
+        transform: none;
+    }
+    .nav-button-list{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-button{
+        width: 100%;
+    }
+     .nav-button:not(:last-child){
+        margin-right: 0;
+        margin-bottom: 30px;
+     }
+     .navigation{
+        width: 100%;
+        padding: 0 30px;
+     }
    }
    
    .nav-button-list{
        display: flex;
-
    }
    
    .nav-button{
@@ -108,33 +132,84 @@ body {
     cursor: pointer;
    }
 
-  
-  
+   .burger::before{
+    bottom: 0;
+   }
+
+   .burger::after{
+    bottom: 0;
+   }
+
    .nav-burger{
-     display: none;
-     margin: auto;
-     margin-right: 20px;
-     margin-left: 20px;
-     cursor: pointer;
+    display: none;
+    margin: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    background-color: #0C0C0E;
+    border: none;
+    cursor: pointer;
    }
 
-   .nav-burger:hover{
-    background-color: #BB945F;
-    border-radius: 15%;
+   .burger--active .burger__line{
+    opacity: 0;
    }
 
-   .hr-burger{
-    width: 45px;
-    flex-shrink: 0;
-    transition: all;
+   .burger--active::before{
+    transform: rotate(45deg);
+   }
+
+   .burger--active::after{
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 23px;
+   }
+
+   .burger__line{
+    display: block;                  
+    width: 45px;                                               
+    border-bottom: 2px solid #fff;
+    position: absolute;
+    right: 20px;
+    top: 43px;
+    transition: opacity 0.3s ease-in-out;
+} 
+
+
+   .nav-burger::after{
+    display: block;          
+    width: 45px;                 
+    content: '';                                
+    border-bottom: 2px solid #fff;      
+   transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, bottom 0.3s ease-in-out;
+   margin-left: -6px;
+   margin-top: 18px;
+   }
+
+   .nav-burger::before{
+    display: block;          
+    width: 45px;                 
+    content: '';                                
+    border-bottom: 2px solid #fff;      
+   transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, bottom 0.3s ease-in-out;
+   margin-left: -6px;
+    margin-top: -3px;
+   }
+
+   .stop-scroll{
+    overflow: hidden;
    }
 
    @media (max-width: 1100px){
     .nav-burger{
         display:block;
+        width: 45px;
+    height: 20px;
+    flex-shrink: 0;
     }
    }
 
+ 
    .welcome{
        max-width: 1440px;
        height: 600px;
@@ -381,7 +456,7 @@ body {
    .season-button-back{
        margin-top: 35px;
        display: grid;
-       grid-template-columns: 150px 150px 200px 136px;
+       grid-template-columns: 150px 150px 200px 138px;
        gap: 30px;
    }
 
@@ -409,8 +484,7 @@ body {
      border-radius:50% 50%;
      position:relative;
      cursor: pointer;
-     vertical-align: -4px;
-     
+     vertical-align: -4px; 
    }
    
    .span-fake::before{
@@ -451,8 +525,7 @@ body {
        padding: 5px;
        cursor: pointer;
        justify-content: flex-start;
-       margin-left: 16px;
-     
+       margin-left: 16px; 
    }
      
    .label-season-Spring{
@@ -460,7 +533,6 @@ body {
        cursor: pointer;
        justify-content: flex-start; 
        margin-left: 29px; 
-       
    }
    
    .label-season-summer{
@@ -468,15 +540,13 @@ body {
        cursor: pointer;
        justify-content: flex-start;
        margin-left: 38px; 
-  
    }
    
    .label-season-autumn {
        padding: 5px;
        cursor: pointer;
        justify-content: flex-start; 
-       margin-left: 13px;
-        
+       margin-left: 13px; 
    }
    
    .favorites-book{
@@ -519,7 +589,6 @@ body {
        background: #FFF;
        margin-left: 20px;
        margin-top: 35px;
-       
    }
    
    .second-book{
@@ -1144,7 +1213,6 @@ body {
     }
    }
    
-   
    .get-reader-card{
        color: #000;
        text-align: center;
@@ -1169,7 +1237,6 @@ body {
        margin: 8px 0px 33px 0px;
    }
 
-   
    @media(max-width:1115px){
     .get-text-card{
         width: 540px;
@@ -1419,3 +1486,10 @@ body {
        margin-top: 14px;
        margin-right: 20px;
    }
+
+
+
+
+
+
+ 
