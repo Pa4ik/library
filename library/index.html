@@ -18,7 +18,7 @@
         <header>
             <div class="warp-header">
                 <h1 class="headtext">Brooklyn Public Library</h1>
-                <nav class="navbutton">
+                <nav class="navbutton" data-nav>
                 <ul class="nav-button-list">
                     <li class="nav-button"><a class="navigation" href="#about">About</a></li>
                     <li class="nav-button"><a class="navigation" href="#favorites">Favorites</a></li>
@@ -27,7 +27,14 @@
                     <li class="nav-button"><a class="navigation" href="#digital-library-cards">Library Card</a></li>
                 </ul>  
                 </nav>
-                <img class="profil" src="icon/icon_profile.svg" alt="profil">
+                <svg class="profil icon-youtube" width="28" height="28" viewBox="0 0 28 28"   xmlns="http://www.w3.org/2000/svg">
+                    <g id="icon_profile">
+                    <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"/>
+                    </g>
+                    </svg>
+                <button class="nav-burger" data-burger>
+                    <span class="burger__line"></span>
+                </button>
             </div>
         </header>
         <main>
@@ -48,14 +55,22 @@
                         The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside 
                     </div>
                     <div class="about-img">
+                        <svg class="carret-left" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M15 7.5L9 12.5L15 17.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                         <img class="slider" src="image/image1.png" alt="image-1">
-                        <img class="slider" src="image/image2.png" alt="image-2">
-                        <img class="slider" src="image/image3.png" alt="image-3">
+                        <img class="slider image-2" src="image/image2.png" alt="image-2">
+                        <img class="slider image-3" src="image/image3.png" alt="image-3">
+                        <svg class="carret-right" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M9 17.5L15 12.5L9 7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                     <div class="slider-button">
                         <div class="slider-button-back"><div class="slider-button-one"></div></div>
                         <div class="slider-button-back"><div class="slider-button-two"></div></div>
                         <div class="slider-button-back"><div class="slider-button-three"></div></div>
+                        <div class="slider-button-back"><div class="slider-button-four"></div></div>
+                        <div class="slider-button-back"><div class="slider-button-five"></div></div>
                     </div>
                 </div>                
             </section>
@@ -411,7 +426,7 @@
                             </div>
                         </div>
                         <div class="blok-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1069.5021789554285!2d-73.9921311438605!3d40.69580002915306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b649b8c3%3A0x6342a2291cea2e!2zMjg2IENhZG1hbiBQbGF6YSBXLCBCcm9va2x5biwgTlkgMTEyMDEsINCh0KjQkA!5e0!3m2!1sru!2str!4v1689102186763!5m2!1sru!2str" width="696" height="414" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe class="max-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1069.5021789554285!2d-73.9921311438605!3d40.69580002915306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b649b8c3%3A0x6342a2291cea2e!2zMjg2IENhZG1hbiBQbGF6YSBXLCBCcm9va2x5biwgTlkgMTEyMDEsINCh0KjQkA!5e0!3m2!1sru!2str!4v1689102186763!5m2!1sru!2str" width="696" height="414" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>                  
                 </div>
@@ -440,7 +455,7 @@
                     <div class="get-card">
                         <h3 class="get-reader-card">Get a reader card</h3>
                         <p class="get-text-card">You will be able to see a reader card after logging into account or you can register a new account</p>
-                    <div>
+                    <div class="button-sing-log">
                         <button class="button-sing-up">Sign Up</button>
                         <button class="button-log-in">Log in</button>
                     </div>
@@ -487,12 +502,13 @@
                     <div class="rs-school-github">
                         <p class="year-lib">2023</p>
                         <a class="rs-school color-link" href="https://rs.school/js-stage0/" target="_blank"><p>The Rolling Scopes School</p></a>
-                        <a class="git-link color-link" href="https://github.com/Pa4ik" target="_blank"><p>Maksim Pachuzheuski</p></a>
+                        <a class="git-link color-link" href="https://github.com/Pa4ik" target="_blank"><p>Maxim</p></a>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
+    <script src="js/script.js" ></script>
     <script src="js/index.js"></script>   
 </body>
 </html>
