@@ -1,7 +1,8 @@
+// бугрер меню
 const burger = document?.querySelector("[data-burger]");
 const nav = document?.querySelector("[data-nav]");
 const navigation = nav?.querySelectorAll("a");
-
+// откртие закрытие на бургер
 burger?.addEventListener("click" , () => {
    burger?.classList.toggle("burger--active");
    nav?.classList.toggle("navbutton--visibl") ;
@@ -14,7 +15,7 @@ navigation.forEach(el => {
     })
 });
 
-
+//Закрытие на ecp и вне блока 
 window.addEventListener ("keydown", function(event){
     if (event.keyCode === 27){
         burger?.classList.remove("burger--active");
