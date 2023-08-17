@@ -576,7 +576,7 @@ body {
    @media (max-width: 1220px){
     .book-list{
         display: flex;
-        column-gap: 0;
+        column-gap: 20px;
         justify-content: space-evenly;
         margin-right: 63px;
     }
