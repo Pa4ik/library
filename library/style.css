@@ -57,6 +57,9 @@ body {
         position:absolute;
         right: 0;
         top: 60px;
+        width: 332px;
+        height: 510px;
+        transform: none;
         z-index: 1000;
         background-color: #0C0C0E;
         transform: translateY(-300%);
@@ -166,12 +169,14 @@ body {
 
    .burger--active::before{
     transform: rotate(45deg);
+  
    }
 
    .burger--active::after{
     transform: rotate(-45deg);
     position: absolute;
     top: 23px;
+  
    }
 
    .burger__line{
