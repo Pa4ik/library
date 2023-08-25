@@ -719,7 +719,7 @@ body {
      transition: 0.3s;
    }
    
-   .buy-book-off{
+   /* .buy-book-off{
        width: 75px;
       height: 30px;
       flex-shrink: 0;
@@ -742,7 +742,7 @@ body {
        border-radius: 2px;
        border: 1px solid #BB945F;
        background: #BB945F;
-   }
+   } */
    
    .buy-book:hover{
        border-radius: 2px;
@@ -1496,10 +1496,3 @@ body {
        margin-top: 14px;
        margin-right: 20px;
    }
-
-
-
-
-
-
- 

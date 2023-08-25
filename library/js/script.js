@@ -30,4 +30,13 @@ window.addEventListener("click", function(event){
     } 
   });
 
- 
+
+
+// кнопка не активная до регистрации  
+const btn = document.querySelector('.button-check-card');
+btn.setAttribute('disabled', '');
+
+
+
+// Слайдер в секции about
+
