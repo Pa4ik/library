@@ -38,5 +38,4 @@ btn.setAttribute('disabled', '');
 
 
 
-// Слайдер в секции about
-
+// Слайдер в секции аbout
