@@ -143,3 +143,25 @@ labelAutumn?.addEventListener("click" , () => {
 
 
 // Меню авторизации при нажатии на иконку пользователя
+
+   //открытие меню и закритие на иконку
+const buttonProfile = document.querySelector('.profil')
+const dporMenuProfile = document.querySelector('.drop-menu-profile')
+
+buttonProfile?.addEventListener("click" , () => {
+  dporMenuProfile?.classList.toggle("menu-active");
+});
+  //закрытие на другие части сайта
+  window.addEventListener ("keydown", function(event){
+    if (event.keyCode === 27){
+      dporMenuProfile?.classList.remove("menu-active");
+    }
+  })
+
+  document.addEventListener("click", function(event) {
+    const targetElement = event.target;
+  if (!targetElement.closest('.profil') && !targetElement.closest('.drop-menu-profile')) {
+      dporMenuProfile?.classList.remove("menu-active");
+    }
+  });
+
