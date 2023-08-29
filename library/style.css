@@ -464,6 +464,7 @@ body {
     min-width: 300px;
     width: auto;
     margin: auto;
+    position: relative
   }
 
    .favorites-text{
@@ -489,7 +490,18 @@ body {
        gap: 30px;
    }
 
-   @media (max-width:720px){
+   @media(max-width:768px)  {
+    .season-button{
+       position: sticky;
+       top: 0;
+       z-index: 10;
+       background: rgba(153, 153, 153, 0.6);
+       padding: 10px;
+    }
+    
+   }
+
+   @media (max-width:740px){
     .season-button-back{
         display: flex;
         flex-wrap: wrap;
@@ -732,10 +744,13 @@ body {
      font-weight: 700;
      line-height: normal;
      letter-spacing: 1px;
-     position: absolute;
-     margin-left: -181px;
      cursor: pointer;
      transition: 0.3s;
+     margin-left: 19px;
+   }
+
+   .btn-book{
+    margin: auto;
    }
    
    /* .buy-book-off{
@@ -770,27 +785,52 @@ body {
      }
    
    .winter-book{
-       position: relative;
-       bottom: 255px;
-       left: 389px;
+    margin-top: -285px;
+    margin-left: 389px;
    }
-   
+
    .winter-book-list{
        flex-shrink: 0;
+       display: none;
    }
    
    .spring-book-list{
        display: none;
+       flex-shrink: 0;
    }
    
    .summer-book-list{
-       display: none;   
+       display: none;
+       flex-shrink: 0;   
    }
    
    .autumn-book-list{
-       display: none;   
+       display: none; 
+       flex-shrink: 0;  
    }
-   
+
+   .book-active{
+    display: block;
+    opacity: 0;
+    transition: opacity 0.5s;
+   }
+
+   .book-active.active {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+
+   .fade-out {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+
    .warp-coffee-shop{
     max-width: 1440px;
     min-width: 300px;

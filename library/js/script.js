@@ -31,6 +31,8 @@ window.addEventListener("click", function(event){
   });
 
 
+//ЭТАП 1!
+
 
 // кнопка не активная до регистрации  
 const btn = document.querySelector('.button-check-card');
@@ -41,8 +43,6 @@ btn.setAttribute('disabled', '');
 // слайдер 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
-  
-
   breakpoints: {
     320: {
         slidesPerView: 1,
@@ -62,7 +62,6 @@ pagination: {
   el: '.swiper-pagination',
   clickable: true,
 },
-
 // Navigation arrows
 navigation: {
   nextEl: '.swiper-button-next',
@@ -74,3 +73,73 @@ navigation: {
 
 
 // Секция фоворит
+  // кнопки
+const labelWinter = document.querySelector('.label-season-winter')
+const labelSpring = document.querySelector('.label-season-Spring')
+const labelSummer = document.querySelector('.label-season-summer')
+const labelAutumn = document.querySelector('.label-season-autumn')
+  //книги сезонов
+const bookWinter = document.querySelector('.winter-book-list')
+const bookSpring = document.querySelector('.spring-book-list')
+const bookSummer = document.querySelector('.summer-book-list')
+const bookAutumn = document.querySelector('.autumn-book-list')
+
+// Функции 
+labelWinter?.addEventListener("click" , () => {
+  bookWinter?.classList.add("book-active");
+  setTimeout(() => {
+    bookWinter?.classList.add("active");
+  }, 0);
+  bookSpring?.classList.remove("book-active");
+  bookSpring?.classList.remove("active");
+  bookSummer?.classList.remove("book-active");
+  bookSummer?.classList.remove("active");
+  bookAutumn?.classList.remove("book-active");
+  bookAutumn?.classList.remove("active");
+});
+
+labelSpring?.addEventListener("click" , () => {
+  bookSpring?.classList.add("book-active");
+  setTimeout(() => {
+    bookSpring?.classList.add("active");
+  }, 0);
+  bookWinter?.classList.remove("book-active");
+  bookWinter?.classList.remove("active");
+  bookSummer?.classList.remove("book-active");
+  bookSummer?.classList.remove("active");
+  bookAutumn?.classList.remove("book-active");
+  bookAutumn?.classList.remove("active");
+});
+
+labelSummer?.addEventListener("click" , () => {
+  bookSummer?.classList.add("book-active");
+  setTimeout(() => {
+    bookSummer?.classList.add("active");
+  }, 0);
+  bookSpring?.classList.remove("book-active");
+  bookSpring?.classList.remove("active");
+  bookWinter?.classList.remove("book-active");
+  bookWinter?.classList.remove("active");
+  bookAutumn?.classList.remove("book-active");
+  bookAutumn?.classList.remove("active");
+});
+
+labelAutumn?.addEventListener("click" , () => {
+  bookAutumn?.classList.add("book-active");
+  setTimeout(() => {
+    bookAutumn?.classList.add("active");
+  }, 0);
+  bookSpring?.classList.remove("book-active");
+  bookSpring?.classList.remove("active");
+  bookSummer?.classList.remove("book-active");
+  bookSummer?.classList.remove("active");
+  bookWinter?.classList.remove("book-active");
+  bookWinter?.classList.remove("active");
+});
+
+
+
+// ЭТАП 2 
+
+
+// Меню авторизации при нажатии на иконку пользователя
