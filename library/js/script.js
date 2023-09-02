@@ -165,3 +165,37 @@ buttonProfile?.addEventListener("click" , () => {
     }
   });
 
+//модалка регистрации 
+const btnRegisterProfile = document.querySelector('.button-rigister-profile')
+const menuRegistr = document.querySelector('.modal-register')
+const closeRegistr = document.querySelector('.close-register')
+const btnSingUp = document.querySelector ('.button-sing-up')
+
+btnRegisterProfile?.addEventListener("click" , () => {
+  menuRegistr?.classList.toggle("menu-active");
+  dporMenuProfile?.classList.remove("menu-active");
+  closeRegistr?.classList.remove("menu-active");
+});
+
+btnSingUp?.addEventListener("click", () =>{
+  menuRegistr?.classList.toggle("menu-active");
+})
+
+window.addEventListener ("keydown", function(event){
+  if (event.keyCode === 27){
+    menuRegistr?.classList.remove("menu-active");
+  }
+})
+
+closeRegistr.addEventListener('click' , () =>{
+  menuRegistr?.classList.remove("menu-active");
+})
+
+window.addEventListener('click', (event) => {
+  if (event.target === menuRegistr) {
+    menuRegistr?.classList.remove('menu-active');
+  }
+});
+ // проверка на пустоту
+
+ 
