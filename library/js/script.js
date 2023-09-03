@@ -196,6 +196,146 @@ window.addEventListener('click', (event) => {
     menuRegistr?.classList.remove('menu-active');
   }
 });
+
+                // Проверка регистрации 
+
  // проверка на пустоту
+  
+// Получить все элементы input
+const inputs = document.getElementsByClassName("input-register-modal");
+const errorSpans = document.getElementsByClassName("fill-error");
+const signUpButton = document.querySelector(".btn-rigister-profile");
+
+// Отслеживать событие нажатия на кнопку Sign Up
+signUpButton.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].value.trim() === "") {
+      errorSpans[i].classList.add("show-error");
+    } else {
+      errorSpans[i].classList.remove("show-error");
+    }
+  }
+});
+
+// Отслеживать событие ввода в поля ввода и удалять класс show-error
+for (let i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener("input", function() {
+    errorSpans[i].classList.remove("show-error");
+  });
+}
+
+
+  // Проверка name 
+    //проверка на длину 
+const nameInputs = document.querySelectorAll('.input-register-modal');
+
+nameInputs.forEach(input => {
+  input.addEventListener('input', () => {
+    const nameError = input.parentNode.querySelector('.name-error');
+    if (input.value.length < 3 && input.value.length > 0) {
+      nameError.classList.add('show-error');
+    } else {
+      nameError.classList.remove('show-error');
+    }
+  });
+});
+
+
+      //проверка емайла на правильность ввода 
+const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+const input = document.getElementById('email');
+const errorInput = document.querySelector(".email-error")
+
+function isEmailValid(value) {
+  return EMAIL_REGEXP.test(value);
+}
+
+function toggleError(isValid) {
+  if (input.value.trim() === '') {
+    errorInput.classList.remove('show-error');
+  } else {
+    if (isValid) {
+      errorInput.classList.remove('show-error');
+    } else {
+      errorInput.classList.add('show-error');
+    }
+  }
+}
+
+function onInput() {
+  const value = input.value.trim();
+  toggleError(isEmailValid(value));
+}
+
+input.addEventListener('input', onInput);
+
+
+// проверка пасс на длину 
+
+const passwordInput = document.querySelectorAll('.input-register-modal');
+const passErrorElement = document.querySelector('.pass-error');
+
+// Функция для проверки пароля 
+
+nameInputs.forEach(input => {
+  input.addEventListener('input', () => {
+    const passError = input.parentNode.querySelector('.pass-error');
+    if (input.value.length <= 8 && input.value.length > 0) {
+      passError.classList.add('show-error');
+    } else {
+      passError.classList.remove('show-error');
+    }
+  });
+});
+
+//сохранения данных  localStorage
+
+ 
+document.querySelector('.btn-rigister-profile').addEventListener('click', function(e) {
+  e.preventDefault(); // отменяем отправку формы
+
+// Получаем значения полей ввода
+  const firstName = document.querySelector('.input-register-modal:nth-of-type(1)').value;
+  const lastName = document.querySelector('.input-register-modal-2').value;
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('.input-register-modal[type="password"]').value;
+
+// Проверяем, есть ли пустые поля
+  if (firstName.trim() !== '' && lastName.trim() !== '' && email.trim() !== '' && password.trim() !== '') {
+    // Проверяем, нет ли ошибок введенных данных
+    if (!document.querySelector('.name-error.show-error') && !document.querySelector('.email-error.show-error') && !document.querySelector('.pass-error.show-error')) {
+      // Сохраняем значения в localStorage
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+      // Генерируем случайный номер карты
+      const cardNumberHex = generateCardNumber();
+      // Сохраняем сгенерированный номер карты в localStorage
+      localStorage.setItem('cardNumber', cardNumberHex);
+      //  Перенаправляем на другую страницу или делаем другую логику
+      location.reload();
+    }
+  }
+});
+
+function generateCardNumber() {
+  // Сгенерировать случайное девятизначное число
+  let randomNumber = Math.floor(Math.random() * 90000000) + 10000000;
+  // Сконвертировать число в 16-ричную систему
+  let cardNumberHex = randomNumber.toString(16).toUpperCase();
+  // Добавить нули в начало, чтобы получить 9-значное число
+  while (cardNumberHex.length < 9) {
+    cardNumberHex = "0" + cardNumberHex;
+  }
+  return cardNumberHex;
+} 
+
+
+
+
+
 
  

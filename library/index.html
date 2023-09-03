@@ -556,23 +556,27 @@
                     <form class="form-register-modal">
                             <label class="label-register-modal">
                               <span class="name-register-modal">First name</span>
-                              <input type="text" class="input-register-modal" required="" pattern="^[a-zA-Z]+$" >
-                              <span class="text-error">Fill in this field</span>
+                              <input type="text" class="input-register-modal"  >
+                              <span class="text-error fill-error">Fill in this field</span>
+                              <span class="text-error name-error">Name must be more than 3 characters</span>
                             </label>
                             <label class="label-register-modal">
                               <span class="name-register-modal">Last name</span>
-                              <input type="text" class="input-register-modal" required="" pattern="^[a-zA-Z]+$" >
-                              <span class="text-error">Fill in this field</span>
+                              <input type="text" class="input-register-modal input-register-modal-2"  >
+                              <span class="text-error fill-error">Fill in this field</span>
+                              <span class="text-error name-error">Name must be more than 3 characters</span>
                             </label>
                             <label class="label-register-modal">
                               <span class="name-register-modal">E-mail</span>
-                              <input type="email"  class="input-register-modal " required="" >
-                              <span class="text-error">Fill in this field</span>
+                              <input type="text"  class="input-register-modal" id="email"  >
+                              <span class="text-error fill-error">Fill in this field</span>
+                              <span class="text-error email-error">Enter your email correctly</span>
                             </label>
                             <label class="label-register-modal">
                               <span class="name-register-modal">Password</span>
-                              <input type="password" class="input-register-modal" required="" minlength="8">
-                              <span class="text-error">Fill in this field</span>
+                              <input type="password" class="input-register-modal">
+                              <span class="text-error fill-error">Fill in this field</span>
+                              <span class="text-error pass-error">Password must be more than 8 characters</span>
                             </label>
                             <button class="btn-rigister-profile btn-rigister-profile-text" type="submit">Sign Up</button>
                         </form>

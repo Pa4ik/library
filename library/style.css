@@ -1871,6 +1871,10 @@ top: 14px;
     opacity: 0;
 }
 
+.show-error{
+    opacity: 1;
+}
+
 .input-register-modal{
     position: relative;
     top: 8px;
