@@ -197,6 +197,7 @@ window.addEventListener('click', (event) => {
   }
 });
 
+
                 // Проверка регистрации 
 
  // проверка на пустоту
@@ -314,7 +315,11 @@ document.querySelector('.btn-rigister-profile').addEventListener('click', functi
       // Генерируем случайный номер карты
       const cardNumberHex = generateCardNumber();
       // Сохраняем сгенерированный номер карты в localStorage
-      localStorage.setItem('cardNumber', cardNumberHex);
+      localStorage.setItem('cardNumber', cardNumberHex);    
+      // сохраняем книги 
+      localStorage.setItem('userBooks', 0);
+      //сохраняем заходов 
+      localStorage.setItem('userVisits', 0);
       //  Перенаправляем на другую страницу или делаем другую логику
       location.reload();
     }
@@ -335,7 +340,105 @@ function generateCardNumber() {
 
 
 
+//Иконка пользователя меняется на заглавные буквы имени
+//Достаем элементы 
+const firstName = localStorage.getItem('firstName');
+const lastName = localStorage.getItem('lastName');
+
+//Берем первый буквы
+const firstNameInitial = firstName.charAt(0);
+const lastNameInitial = lastName.charAt(0);
+
+console.log(`${firstNameInitial}${lastNameInitial}`);
 
 
 
- 
+
+
+   // Этап 3 
+
+   //модалка регистрации 
+const btnloginProfile = document.querySelector('.button-log-in-profile')
+const menulogin = document.querySelector('.modal-login')
+const closeLogin = document.querySelector('.close-login')
+const btnLogin = document.querySelector ('.button-log-in')
+
+btnloginProfile?.addEventListener("click" , () => {
+  menulogin?.classList.toggle("menu-active");
+  dporMenuProfile?.classList.remove("menu-active");
+  closeLogin?.classList.remove("menu-active");
+});
+
+btnLogin?.addEventListener("click", () =>{
+  menulogin?.classList.toggle("menu-active");
+})
+
+window.addEventListener ("keydown", function(event){
+  if (event.keyCode === 27){
+    menulogin?.classList.remove("menu-active");
+  }
+})
+
+closeLogin.addEventListener('click' , () =>{
+  menulogin?.classList.remove("menu-active");
+})
+
+window.addEventListener('click', (event) => {
+  if (event.target === menulogin) {
+    menulogin?.classList.remove('menu-active');
+  }
+});
+
+// открытие логина на покупке книг 
+const loginByuBook = document.querySelectorAll(".buy-book")
+
+loginByuBook?.forEach(button => {
+  button.addEventListener("click", () =>{
+    menulogin?.classList.toggle("menu-active");
+  })
+})
+
+
+// переглючения модалок рег и лог 
+const btnReg = document.querySelector(".btn-register")
+const btnLog = document.querySelector(".btn-login")
+
+btnReg?.addEventListener("click" , () => {
+  menuRegistr?.classList.toggle("menu-active");
+  menulogin?.classList.remove("menu-active");
+});
+
+btnLog?.addEventListener("click" , () => {
+  menulogin?.classList.toggle("menu-active");
+  menuRegistr?.classList.remove("menu-active");
+});
+
+//проверка инпутов логин 
+
+//проверка на пустоту
+// Получить все элементы input
+const inputsLogin = document.getElementsByClassName("input-login-modal");
+const errorSpansLogin = document.getElementsByClassName("fill-error-log");
+const logInButton = document.querySelector(".btn-login-profile");
+
+// Отслеживать событие нажатия на кнопку Sign Up
+logInButton.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  for (let i = 0; i < inputsLogin.length; i++) {
+    if (inputsLogin[i].value.trim() === "") {
+      errorSpansLogin[i].classList.add("show-error");
+    } else {
+      errorSpansLogin[i].classList.remove("show-error");
+    }
+  }
+});
+
+// Отслеживать событие ввода в поля ввода и удалять класс show-error
+for (let i = 0; i < inputsLogin.length; i++) {
+  inputsLogin[i].addEventListener("input", function() {
+    errorSpansLogin[i].classList.remove("show-error");
+  });
+}
+
+// проверка на верность логина

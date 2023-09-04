@@ -1811,8 +1811,8 @@ line-height: 20px; /* 133.333% */
 
 .modal-register-window{
    position: fixed;
-   width: 228px;
-   height: 348px;
+   width: 250px;
+   height: 382px;
    background: #FFF;
    top: 0;
    left: 0;
@@ -1829,8 +1829,8 @@ line-height: 20px; /* 133.333% */
 
 .close-register{
     position: relative;
-    top: 12px;
-    left: 198px;
+    top: 13px;
+    left: 218px;
     cursor: pointer;
 }
 
@@ -1838,22 +1838,24 @@ line-height: 20px; /* 133.333% */
     color: #000;
 text-align: center;
 font-family: Forum;
-font-size: 18px;
+font-size: 20px;
 font-style: normal;
 font-weight: 400;
 line-height: 20px; /* 100% */
 letter-spacing: 0.4px;
 text-transform: uppercase;
 position: relative;
-margin-left: 55px;
-top: 14px;
+margin-left: 63px;
+top: 17px;
 }
 
 
 .form-register-modal{
     display: grid;
-    padding-top: 30px;
-    gap:17px;
+    padding-top: 37px;
+    margin-left: 3px;
+    gap: 20px;
+    justify-content: start;
 }
 
 .label-register-modal{
@@ -1864,7 +1866,7 @@ top: 14px;
 
 .text-error{
     position: absolute;
-    margin-top: 46px;
+    margin-top: 50px;
     font-size: 10px;
     color: red;
     font-family: Inter;
@@ -1877,21 +1879,21 @@ top: 14px;
 
 .input-register-modal{
     position: relative;
-    top: 8px;
-    width: 175px;
-    height: 14px;
+    top: 10px;
+    width: 193px;
+    height: 16px;
     border: 1px solid #BB945F;
     outline: none;
 }
 
 .btn-rigister-profile{
-width: 68px;
-height: 27px;
+width: 75px;
+height: 30px;
 flex-shrink: 0;
 border-radius: 2px;
 border: 1px solid #0C0C0E;
 position: relative;
-top: 9px;
+top: 10px;
     left: 22px;
     transition: 0.3s;
     cursor: pointer;
@@ -1907,7 +1909,7 @@ top: 9px;
     color: #0C0C0E;
 text-align: center;
 font-family: Inter;
-font-size: 9px;
+font-size: 10px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
@@ -1916,13 +1918,13 @@ letter-spacing: 1px;
 
 .name-register-modal{
     color: #000;
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px;
-letter-spacing: 0.3px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 133.333% */
+    letter-spacing: 0.3px;
 }
 
 
@@ -1930,13 +1932,13 @@ letter-spacing: 0.3px;
     color: #000;
 text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
 font-family: Inter;
-font-size: 9px;
+font-size: 10px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
 position: relative;
-top: 13px;
-    left: 23px;
+top: 16px;
+    left: 27px;
 }
 
 .btn-login{
@@ -1956,6 +1958,171 @@ transition: 0.3s;
 }
 
 .btn-login:hover{
+    border-radius: 2px;
+    color: #BB945F;
+}
+
+
+.modal-login{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 66%);
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: translateY(-300%);
+ }
+
+.modal-login-window{
+   position: fixed;
+   width: 250px;
+   height: 262px;
+   background: #FFF;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   margin: auto; 
+}
+
+.menu-active{
+    opacity: 1;
+    transition: opacity 0.5s;
+    transform: none;
+ }
+
+.close-login{
+    position: relative;
+    top: 13px;
+    left: 218px;
+    cursor: pointer;
+}
+
+.login-span{
+    color: #000;
+text-align: center;
+font-family: Forum;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+letter-spacing: 0.4px;
+text-transform: uppercase;
+position: relative;
+margin-left: 75px;
+top: 17px;
+}
+
+
+.form-login-modal{
+    display: grid;
+    padding-top: 37px;
+    margin-left: 3px;
+    gap: 20px;
+    justify-content: start;
+}
+
+.label-login-modal{
+    display: grid;
+    justify-items: start;
+    padding-left: 22px;
+}
+
+.text-error{
+    position: absolute;
+    margin-top: 50px;
+    font-size: 10px;
+    color: red;
+    font-family: Inter;
+    opacity: 0;
+}
+
+.show-error{
+    opacity: 1;
+}
+
+.input-login-modal{
+    position: relative;
+    top: 10px;
+    width: 193px;
+    height: 16px;
+    border: 1px solid #BB945F;
+    outline: none;
+}
+
+.btn-login-profile{
+width: 75px;
+height: 30px;
+flex-shrink: 0;
+border-radius: 2px;
+border: 1px solid #0C0C0E;
+position: relative;
+top: 10px;
+    left: 22px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-login-profile:hover{
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    background: #BB945F; 
+}
+
+.btn-login-profile-text{
+    color: #0C0C0E;
+text-align: center;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1px;
+}
+
+.name-login-modal{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 133.333% */
+    letter-spacing: 0.3px;
+}
+
+
+.modal-login-span{
+    color: #000;
+text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+position: relative;
+top: 16px;
+    left: 27px;
+}
+
+.btn-register{
+    color: #0C0C0E;
+text-align: center;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1px;
+text-decoration-line: underline;
+border: none;
+background-color: #FFF;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.btn-register:hover{
     border-radius: 2px;
     color: #BB945F;
 }
