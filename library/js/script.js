@@ -413,6 +413,9 @@ btnLog?.addEventListener("click" , () => {
   menuRegistr?.classList.remove("menu-active");
 });
 
+
+
+
 //проверка инпутов логин 
 
 //проверка на пустоту
@@ -421,7 +424,7 @@ const inputsLogin = document.getElementsByClassName("input-login-modal");
 const errorSpansLogin = document.getElementsByClassName("fill-error-log");
 const logInButton = document.querySelector(".btn-login-profile");
 
-// Отслеживать событие нажатия на кнопку Sign Up
+// Отслеживать событие нажатия на кнопку login
 logInButton.addEventListener("click", function(event) {
   event.preventDefault();
 
@@ -442,3 +445,75 @@ for (let i = 0; i < inputsLogin.length; i++) {
 }
 
 // проверка на верность логина
+
+
+const emailUser = localStorage.getItem('email')
+const passUser = localStorage.getItem('password')
+const emailLogin = document.querySelector('.input-login-modal[type="text"]');
+const passwordLogin = document.querySelector('.input-login-modal[type="password"]');
+const cardNumberUser = localStorage.getItem ('cardNumber')
+ 
+
+// проверка логина и карточки на верность
+logInButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  if (emailLogin.value !== '') {
+    if (emailUser !== emailLogin.value && cardNumberUser !== emailLogin.value) {
+      document.querySelector('.error-login').classList.add('show-error');
+    } else {
+      document.querySelector('.error-login').classList.remove('show-error');
+    }
+  }
+});
+
+emailLogin.addEventListener("input", function() {
+  document.querySelector('.error-login').classList.remove('show-error');
+});
+
+// проверка пароля на правильность 
+logInButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  if (passwordLogin.value.length > 8) {
+    if (passUser !== passwordLogin.value) {
+      document.querySelector('.error-pass-login').classList.add('show-error');
+    } else {
+      document.querySelector('.error-pass-login').classList.remove('show-error');
+    }
+  }
+});
+
+
+passwordLogin.addEventListener("input", function() {
+  document.querySelector('.error-pass-login').classList.remove('show-error');
+});
+
+// проверка пасс на длину 
+// Функция для проверки пароля 
+const passwordLoginLeng = document.querySelectorAll('.input-login-modal');
+
+passwordLoginLeng.forEach(input => {
+  input.addEventListener('input', () => {
+    const passLogin = input.parentNode.querySelector('.pass-error-login');
+    if (input.value.length <= 8 && input.value.length > 0) {
+      passLogin.classList.add('show-error');
+    } else {
+      passLogin.classList.remove('show-error');
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
