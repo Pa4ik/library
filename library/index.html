@@ -32,14 +32,14 @@
                         <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"/>
                         </g>
                     </svg>
-                    <!-- <div class="profil ">
-
-                    </div> -->
+                    <div class="profil profil-autro" style="display: none;">
+                        <span><span>                     
+                    </div>
                     <div class="drop-menu-profile">
                         <ul class="list-account-link">
                             <strong class="profile-account">Profile</strong>
                             <hr class="menu-line-account">
-                            <li class="account-li"><button class="button-log-in-profile account-li">Log In</button></li>
+                            <li class="account-li"><button class="button-log-in-profile account-li ">Log In</button></li>
                             <li class="account-li"><button class="button-rigister-profile account-li">Register</button></li>
                         </ul>
                     </div>
@@ -484,11 +484,38 @@
                             <form class="library-card-form">
                                 <div class="library-card-input">
                                     <span class="card-input-name">Brooklyn Public Library</span>
-                                    <input type="text" class="readers-name" placeholder="Reader's name" required="" pattern="^[a-zA-Z]+$">
-                                    <input type="text" class="card-number" placeholder="Card number" required="" pattern="^[a-zA-Z]+$">
+                                    <input type="text" class="readers-name chek-card-profil" placeholder="Reader's name" >
+                                    <!-- <span class="text-error"></span> -->
+                                    <input type="text" class="card-number chek-card-profil" placeholder="Card number" >
+                                    <!-- <span class="text-error "></span> -->
                                 </div>
                                 <div class="library-card-button">
-                                    <button class="button-check-card">Check the card</button>
+                                    <button class="button-check-card" >Check the card</button>
+                                    <ul class="info-digital-card" style="display: none;">
+                                        <li class="info-digital-card-profil">
+                                            <span class="info-digital-card-in">Visits</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+                                            </svg>
+                                            <span class="info-digital-card-numer"></span>
+                                        </li>
+                                        <li class="info-digital-card-profil">
+                                            <span class="info-digital-card-in">Bonuses</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                                <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+                                            </svg>
+                                            <span class="info-digital-card-numer">1240</span>
+                                        </li>
+                                        <li class="info-digital-card-profil">
+                                            <span class="info-digital-card-in">Books</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                                <rect width="20" height="21" fill="#BB945F"/>
+                                                <rect x="2" width="1" height="19" fill="#826844"/>
+                                                <rect x="1" width="1" height="21" fill="white"/>
+                                            </svg>
+                                            <span class="info-digital-card-numer"></span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </form>
                         </div>
@@ -616,6 +643,78 @@
                     <span class="modal-login-span">Don’t have an account?
                         <button class="btn-register" type="submit">Register</button>
                     </span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-window-profil">
+            <div class="modal-profil ">
+                <div class="modal-profil-window">
+                    <div class="left-container">
+                        <span class="initials-cont">
+                         
+                        </span>
+                        <span class="name-cont">
+                            
+                        </span>
+                    </div>
+                    <div class="rights-container">
+                        <span class="my-profil">
+                            My profile
+                        </span>
+                        <ul class="cards-profil">
+                            <li class="info-digital-card-profil info-profil-gap">
+                                <span class="info-digital-card-in profil-info-visits">Visits</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+                                </svg>
+                                <span class="info-digital-card-numer"></span>
+                            </li>
+                            <li class="info-digital-card-profil info-profil-gap">
+                                <span class="info-digital-card-in profil-info-visits">Bonuses</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                    <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+                                </svg>
+                                <span class="info-digital-card-numer">1240</span>
+                            </li>
+                            <li class="info-digital-card-profil info-profil-gap">
+                                <span class="info-digital-card-in profil-info-visits">Books</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                    <rect width="20" height="21" fill="#BB945F"/>
+                                    <rect x="2" width="1" height="19" fill="#826844"/>
+                                    <rect x="1" width="1" height="21" fill="white"/>
+                                </svg>
+                                <span class="info-digital-card-numer"></span>
+                            </li>
+                        </ul>
+                        <span class="rented-books">
+                            Rented books
+                        </span>
+                        <ul class="rented-books-byu">
+                            <li>The Last Queen, Clive Irving</li>
+                            <li>Dominicana, Angie Cruz</li>         
+                        </ul>
+                        <span class="card-num-cop">
+                            Card number
+                            <div>
+                                <div class="click-copi-text">
+                                    <input class="click-copi" type="text" value="${localStorage.getItem('cardNumber')}" readonly> &nbsp
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                                                    <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
+                                                    <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
+                                                  </svg></input>
+                                    </div>
+                            </div>
+                            <!-- <input class="click-copi" type="text" value=""> &nbsp
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                                <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
+                                <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
+                              </svg></input>
+                        </span> -->
+                    </div>
+                    <svg class="close-container-profil"  xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <path d="M2 16.8507L17 2.00001" stroke="#0C0C0E" stroke-width="3"/>
+                        <path d="M2 2.14928L17 17" stroke="#0C0C0E" stroke-width="3"/>
+                    </svg>
                 </div>
             </div>
         </div>

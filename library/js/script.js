@@ -35,10 +35,21 @@ window.addEventListener("click", function(event){
 
 
 // кнопка не активная до регистрации  
-const btn = document.querySelector('.button-check-card');
-btn.setAttribute('disabled', '');
 
+const checkCardForm = document.querySelector('.library-card-form');
+const checkCardBtn = document.querySelector('.button-check-card');
 
+//если пользыватель  НЕ зарегистрирован
+if (localStorage.getItem('userRegistered') !== 'true') {
+checkCardBtn.addEventListener('click', (event) => {
+//отключить кнопку 
+event.stopPropagation();
+});
+//отключить дефолтное поведение 
+  checkCardForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+});
+}
 
 // слайдер 
 const swiper = new Swiper('.swiper', {
@@ -319,7 +330,9 @@ document.querySelector('.btn-rigister-profile').addEventListener('click', functi
       // сохраняем книги 
       localStorage.setItem('userBooks', 0);
       //сохраняем заходов 
-      localStorage.setItem('userVisits', 0);
+      localStorage.setItem('userVisits', 1);
+      localStorage.setItem('userRegistered' ,true);
+      localStorage.setItem('userAuthorized', true);
       //  Перенаправляем на другую страницу или делаем другую логику
       location.reload();
     }
@@ -338,80 +351,280 @@ function generateCardNumber() {
   return cardNumberHex;
 } 
 
+// Этап 3 
 
+   //модалка Логина
+   const btnloginProfile = document.querySelector('.button-log-in-profile')
+   const menulogin = document.querySelector('.modal-login')
+   const closeLogin = document.querySelector('.close-login')
+   const btnLogin = document.querySelector ('.button-log-in')
+   
+   btnloginProfile?.addEventListener("click" , () => {
+     menulogin?.classList.toggle("menu-active");
+     dporMenuProfile?.classList.remove("menu-active");
+     closeLogin?.classList.remove("menu-active");
+   });
+   
+   btnLogin?.addEventListener("click", () =>{
+     menulogin?.classList.toggle("menu-active");
+   })
+   
+   window.addEventListener ("keydown", function(event){
+     if (event.keyCode === 27){
+       menulogin?.classList.remove("menu-active");
+     }
+   })
+   
+   closeLogin.addEventListener('click' , () =>{
+     menulogin?.classList.remove("menu-active");
+   })
+   
+   window.addEventListener('click', (event) => {
+     if (event.target === menulogin) {
+       menulogin?.classList.remove('menu-active');
+     }
+   });
+   
+   // открытие логина на покупке книг 
+   const loginByuBook = document.querySelectorAll(".buy-book")
+   
+   loginByuBook?.forEach(button => {
+     button.addEventListener("click", () =>{
+       menulogin?.classList.toggle("menu-active");
+     })
+   })
+   
+   
+   // переглючения модалок рег и лог 
+   const btnReg = document.querySelector(".btn-register")
+   const btnLog = document.querySelector(".btn-login")
+   
+   btnReg?.addEventListener("click" , () => {
+     menuRegistr?.classList.toggle("menu-active");
+     menulogin?.classList.remove("menu-active");
+   });
+   
+   btnLog?.addEventListener("click" , () => {
+     menulogin?.classList.toggle("menu-active");
+     menuRegistr?.classList.remove("menu-active");
+   });
 
+  // конец 3 этапа
+
+const menuProf = document.querySelector(".menu-profile")
 //Иконка пользователя меняется на заглавные буквы имени
 //Достаем элементы 
 const firstName = localStorage.getItem('firstName');
 const lastName = localStorage.getItem('lastName');
 
+
+
 //Берем первый буквы
 const firstNameInitial = firstName.charAt(0);
 const lastNameInitial = lastName.charAt(0);
 
-console.log(`${firstNameInitial}${lastNameInitial}`);
+if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'){
+  menuProf.innerHTML=`<div class="menu-profile">
+  <svg class="profil" style="display: none; width="28" height="28" viewBox="0 0 28 28"   xmlns="http://www.w3.org/2000/svg">
+      <g id="icon_profile">
+      <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"/>
+      </g>
+  </svg>
+  <div class="profil profil-autro">
+     <span class="autor-Profil" title="${firstName} ${lastName}">${firstNameInitial.toUpperCase()}${lastNameInitial.toUpperCase()}<span>                    
+  </div>
+  <div class="drop-menu-profile-autoriz">
+      <ul class="list-account-link">
+          <strong class="profile-account profile-account-autoriz ">${localStorage.getItem('cardNumber')}</strong>
+          <hr class="menu-line-account">
+          <li class="account-li"><button class="account-li account-li-autoriz account-profil" >My profile</button></li>
+          <li class="account-li"><button class="account-li account-li-autoriz account-log-out">Log Out</button></li>
+      </ul>
+  </div>
+</div>`
+  
+}
 
 
 
 
+// при вводе в Digital Library Cards
+const readersName = document.querySelector('.readers-name')
+const cardNum = document.querySelector('.card-number')
 
-   // Этап 3 
+//функция переключения блоков до авторизации 
+checkCardBtn.addEventListener("click", (e) =>{
+  
+  if (firstName.trim().toLowerCase() + " " + lastName.trim().toLowerCase() !== readersName.value.trim().toLowerCase() || cardNumberUser.toLowerCase() !== cardNum.value.toLowerCase()){
+  e.preventDefault()}
+   else {
+    checkCardForm.innerHTML = `
+<form class="library-card-form">
+<div class="library-card-input">
+    <span class="card-input-name">Brooklyn Public Library</span>
+    <span class="readers-name chek-card-profil">${localStorage.getItem('firstName')} ${localStorage.getItem('lastName')}</span>
+    <span class="card-number chek-card-profil">${localStorage.getItem('cardNumber')}</span>
+</div>
+<div class="library-card-button">
+    <button class="button-check-card" style="display: none;" >Check the card</button>
+    <ul class="info-digital-card">
+        <li class="info-digital-card-profil">
+            <span class="info-digital-card-in">Visits</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+            </svg>
+            <span class="info-digital-card-numer">${localStorage.getItem('userVisits')}</span>
+        </li>
+        <li class="info-digital-card-profil">
+            <span class="info-digital-card-in">Bonuses</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+            </svg>
+            <span class="info-digital-card-numer">1240</span>
+        </li>
+        <li class="info-digital-card-profil">
+            <span class="info-digital-card-in">Books</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <rect width="20" height="21" fill="#BB945F"/>
+                <rect x="2" width="1" height="19" fill="#826844"/>
+                <rect x="1" width="1" height="21" fill="white"/>
+            </svg>
+            <span class="info-digital-card-numer">${localStorage.getItem('userBooks')}</span>
+        </li>
+    </ul>
+</div>
+</form>
+  `;
 
-   //модалка регистрации 
-const btnloginProfile = document.querySelector('.button-log-in-profile')
-const menulogin = document.querySelector('.modal-login')
-const closeLogin = document.querySelector('.close-login')
-const btnLogin = document.querySelector ('.button-log-in')
+  setTimeout(()=>{
 
-btnloginProfile?.addEventListener("click" , () => {
-  menulogin?.classList.toggle("menu-active");
-  dporMenuProfile?.classList.remove("menu-active");
-  closeLogin?.classList.remove("menu-active");
-});
+    checkCardForm.innerHTML = `<form class="library-card-form">
+                 <div class="library-card-input">
+                     <span class="card-input-name">Brooklyn Public Library</span>
+                     <input type="text" class="readers-name chek-card-profil" placeholder="Reader's name" >
+                     <input type="text" class="card-number chek-card-profil" placeholder="Card number" >
+                 </div>
+                 <div class="library-card-button">
+                     <button class="button-check-card" >Check the card</button>
+                     <ul class="info-digital-card" style="display: none;">
+                         <li class="info-digital-card-profil">
+                             <span class="info-digital-card-in">Visits</span>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+                             </svg>
+                             <span class="info-digital-card-numer"></span>
+                         </li>
+                         <li class="info-digital-card-profil">
+                             <span class="info-digital-card-in">Bonuses</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                 <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+                             </svg>
+                             <span class="info-digital-card-numer">1240</span>
+                         </li>
+                         <li class="info-digital-card-profil">
+                             <span class="info-digital-card-in">Books</span>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                 <rect width="20" height="21" fill="#BB945F"/>
+                                 <rect x="2" width="1" height="19" fill="#826844"/>
+                                 <rect x="1" width="1" height="21" fill="white"/>
+                             </svg>
+                             <span class="info-digital-card-numer"></span>
+                         </li>
+                     </ul>
+                              </div>
+                </form>
+                                   `;location.reload();}, 10000 )
+  
+}})
 
-btnLogin?.addEventListener("click", () =>{
-  menulogin?.classList.toggle("menu-active");
-})
+checkCardBtn.addEventListener("click", (e) =>{
+  
+  if (lastName.trim().toLowerCase()+ " " + firstName.trim().toLowerCase() !== readersName.value.trim().toLowerCase() || cardNumberUser.toLowerCase() !== cardNum.value.toLowerCase() ){
+  e.preventDefault()}
+   else {
+    checkCardForm.innerHTML = `
+<form class="library-card-form">
+<div class="library-card-input">
+    <span class="card-input-name">Brooklyn Public Library</span>
+    <span class="readers-name chek-card-profil">${localStorage.getItem('firstName')} ${localStorage.getItem('lastName')}</span>
+    <span class="card-number chek-card-profil">${localStorage.getItem('cardNumber')}</span>
+</div>
+<div class="library-card-button">
+    <button class="button-check-card" style="display: none;" >Check the card</button>
+    <ul class="info-digital-card">
+        <li class="info-digital-card-profil">
+            <span class="info-digital-card-in">Visits</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+            </svg>
+            <span class="info-digital-card-numer">${localStorage.getItem('userVisits')}</span>
+        </li>
+        <li class="info-digital-card-profil">
+            <span class="info-digital-card-in">Bonuses</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+            </svg>
+            <span class="info-digital-card-numer">1240</span>
+        </li>
+        <li class="info-digital-card-profil">
+            <span class="info-digital-card-in">Books</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <rect width="20" height="21" fill="#BB945F"/>
+                <rect x="2" width="1" height="19" fill="#826844"/>
+                <rect x="1" width="1" height="21" fill="white"/>
+            </svg>
+            <span class="info-digital-card-numer">${localStorage.getItem('userBooks')}</span>
+        </li>
+    </ul>
+</div>
+</form>
+  `;
 
-window.addEventListener ("keydown", function(event){
-  if (event.keyCode === 27){
-    menulogin?.classList.remove("menu-active");
-  }
-})
+  setTimeout(()=>{
 
-closeLogin.addEventListener('click' , () =>{
-  menulogin?.classList.remove("menu-active");
-})
+    checkCardForm.innerHTML = `<form class="library-card-form">
+                 <div class="library-card-input">
+                     <span class="card-input-name">Brooklyn Public Library</span>
+                     <input type="text" class="readers-name chek-card-profil" placeholder="Reader's name" >
+                     <input type="text" class="card-number chek-card-profil" placeholder="Card number" >
+                 </div>
+                 <div class="library-card-button">
+                     <button class="button-check-card" >Check the card</button>
+                     <ul class="info-digital-card" style="display: none;">
+                         <li class="info-digital-card-profil">
+                             <span class="info-digital-card-in">Visits</span>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+                             </svg>
+                             <span class="info-digital-card-numer"></span>
+                         </li>
+                         <li class="info-digital-card-profil">
+                             <span class="info-digital-card-in">Bonuses</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                 <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+                             </svg>
+                             <span class="info-digital-card-numer">1240</span>
+                         </li>
+                         <li class="info-digital-card-profil">
+                             <span class="info-digital-card-in">Books</span>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                 <rect width="20" height="21" fill="#BB945F"/>
+                                 <rect x="2" width="1" height="19" fill="#826844"/>
+                                 <rect x="1" width="1" height="21" fill="white"/>
+                             </svg>
+                             <span class="info-digital-card-numer"></span>
+                         </li>
+                     </ul>
+                              </div>
+                </form>
+                                   `;location.reload();}, 10000 )
+  
+}})
 
-window.addEventListener('click', (event) => {
-  if (event.target === menulogin) {
-    menulogin?.classList.remove('menu-active');
-  }
-});
-
-// открытие логина на покупке книг 
-const loginByuBook = document.querySelectorAll(".buy-book")
-
-loginByuBook?.forEach(button => {
-  button.addEventListener("click", () =>{
-    menulogin?.classList.toggle("menu-active");
-  })
-})
 
 
-// переглючения модалок рег и лог 
-const btnReg = document.querySelector(".btn-register")
-const btnLog = document.querySelector(".btn-login")
 
-btnReg?.addEventListener("click" , () => {
-  menuRegistr?.classList.toggle("menu-active");
-  menulogin?.classList.remove("menu-active");
-});
-
-btnLog?.addEventListener("click" , () => {
-  menulogin?.classList.toggle("menu-active");
-  menuRegistr?.classList.remove("menu-active");
-});
+   
 
 
 
@@ -503,11 +716,280 @@ passwordLoginLeng.forEach(input => {
 });
 
 
+// ЭТАП 4
+
+// Меню авторизации при нажатии на иконку пользователя
+
+   //открытие меню и закритие на иконку 
+   const buttonProfileAutoriz = document.querySelector('.profil-autro')
+   const dporMenuProfileAutoriz = document.querySelector('.drop-menu-profile-autoriz')
+   
+   buttonProfileAutoriz?.addEventListener("click" , () => {
+    dporMenuProfileAutoriz?.classList.toggle("menu-active");
+   });
+     //закрытие на другие части сайта
+     window.addEventListener ("keydown", function(event){
+       if (event.keyCode === 27){
+        dporMenuProfileAutoriz?.classList.remove("menu-active");
+       }
+     })
+   
+     document.addEventListener("click", function(event) {
+       const targetElement = event.target;
+     if (!targetElement.closest('.profil-autro') && !targetElement.closest('.drop-menu-profile-autoriz')) {
+      dporMenuProfileAutoriz?.classList.remove("menu-active");
+       }
+     });
 
 
+// октрытие модалки профиль
+
+const modalProfil = document.querySelector('.modal-profil');
+const btnAccountProfil = document.querySelector('.account-profil');
+const closeProfil = document.querySelector('.close-container-profil')
 
 
+btnAccountProfil.addEventListener("click" , () => {
+  modalProfil.classList.toggle("menu-active");
+  dporMenuProfileAutoriz.classList.remove("menu-active");
+  closeProfil?.classList.remove("menu-active");
+});
 
+modalProfil.addEventListener('click', (event) => {
+  if (event.target.classList.contains('close-container-profil')) {
+     modalProfil?.classList.remove('menu-active');
+  }
+});
+     
+    window.addEventListener ("keydown", function(event){
+      if (event.keyCode === 27){
+        modalProfil?.classList.remove("menu-active");
+      }
+    })
+  
+    
+    window.addEventListener('click', (event) => {
+      if (event.target === modalProfil) {
+        modalProfil?.classList.remove('menu-active');
+      }
+    });
+  
+
+     // выход с сайта 
+  const logOutbtn = document.querySelector('.account-log-out')
+  logOutbtn?.addEventListener("click" , () => {
+    localStorage.removeItem('userAuthorized');
+    location.reload()
+   });
+
+ 
+// Находим элемент дива
+var div = document.querySelector('.click-copi-text');
+
+// Добавляем обработчик события на клик
+div.addEventListener('click', function() {
+    // Находим элемент с текстом
+    var textElement = this.querySelector('input');
+
+    // Создаем временный элемент textarea для копирования текста
+    var tempTextarea = document.createElement('textarea');
+    tempTextarea.value = textElement.value;
+
+    // Добавляем временный элемент на страницу
+    document.body.appendChild(tempTextarea);
+
+    // Выделяем текст во временном элементе и копируем его в буфер обмена
+    tempTextarea.select();
+    document.execCommand('copy');
+
+    // Удаляем временный элемент
+    document.body.removeChild(tempTextarea);
+
+    // Отобразить подтверждение копирования
+    alert('Текст успешно скопирован');
+});
+
+// копирование текста в модалки 
+   // Находим элемент дива
+   var div = document.querySelector('.click-copi-text');
+
+   // Добавляем обработчик события на клик
+   div.addEventListener('click', function() {
+       // Находим элемент с текстом
+       var textElement = this.querySelector('input');
+   
+       // Создаем временный элемент textarea для копирования текста
+       var tempTextarea = document.createElement('textarea');
+       tempTextarea.value = textElement.value;
+   
+       // Добавляем временный элемент на страницу
+       document.body.appendChild(tempTextarea);
+   
+       // Выделяем текст во временном элементе и копируем его в буфер обмена
+       tempTextarea.select();
+       document.execCommand('copy');
+   
+       // Удаляем временный элемент
+       document.body.removeChild(tempTextarea);
+   });
+      
+
+
+   // модалка профиль
+   if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'){
+    modalProfil.innerHTML= `<div class="modal-profil-window">
+    <div class="left-container">
+        <span class="initials-cont">
+        ${firstNameInitial.toUpperCase()}${lastNameInitial.toUpperCase()}
+        </span>
+        <span class="name-cont">
+        ${firstName} ${lastName}
+        </span>
+    </div>
+    <div class="rights-container">
+                <span class="my-profil">
+                My profile
+            </span>
+            <ul class="cards-profil">
+                <li class="info-digital-card-profil info-profil-gap">
+                    <span class="info-digital-card-in profil-info-visits">Visits</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+                    </svg>
+                    <span class="info-digital-card-numer">${localStorage.getItem('userVisits')}</span>
+                </li>
+                <li class="info-digital-card-profil info-profil-gap">
+                    <span class="info-digital-card-in profil-info-visits">Bonuses</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                        <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+                    </svg>
+                    <span class="info-digital-card-numer">1240</span>
+                </li>
+                <li class="info-digital-card-profil info-profil-gap">
+                    <span class="info-digital-card-in profil-info-visits">Books</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                        <rect width="20" height="21" fill="#BB945F"/>
+                        <rect x="2" width="1" height="19" fill="#826844"/>
+                        <rect x="1" width="1" height="21" fill="white"/>
+                    </svg>
+                    <span class="info-digital-card-numer">${localStorage.getItem('userBooks')}</span>
+                </li>
+            </ul>
+            <span class="rented-books">
+                Rented books
+            </span>
+            <ul class="rented-books-byu">
+                <li>The Last Queen, Clive Irving</li>
+                <li>Dominicana, Angie Cruz</li> 
+            </ul>
+            <span class="card-num-cop">
+                Card number
+                <div class="click-copi-text">
+                <input class="click-copi" type="text" value="${localStorage.getItem('cardNumber')}" readonly> &nbsp
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                                <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
+                                <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
+                              </svg></input>
+                </div>
+            </span>  
+
+    </div>
+    <svg class="close-container-profil" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+        <path d="M2 16.8507L17 2.00001" stroke="#0C0C0E" stroke-width="3"/>
+        <path d="M2 2.14928L17 17" stroke="#0C0C0E" stroke-width="3"/>
+    </svg>`
+   };
+
+// копирование текста в модалки 
+   // Находим элемент дива
+   var div = document.querySelector('.click-copi-text');
+
+   // Добавляем обработчик события на клик
+   div.addEventListener('click', function() {
+       // Находим элемент с текстом
+       var textElement = this.querySelector('input');
+   
+       // Создаем временный элемент textarea для копирования текста
+       var tempTextarea = document.createElement('textarea');
+       tempTextarea.value = textElement.value;
+   
+       // Добавляем временный элемент на страницу
+       document.body.appendChild(tempTextarea);
+   
+       // Выделяем текст во временном элементе и копируем его в буфер обмена
+       tempTextarea.select();
+       document.execCommand('copy');
+   
+       // Удаляем временный элемент
+       document.body.removeChild(tempTextarea);
+   });
+      
+
+
+   // блок Digital Library Cards
+   const blokLibraryCard = document.querySelector(".blok-library-card")
+
+   if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'){
+    blokLibraryCard.innerHTML= `<div class="blok-library-card">
+    <div class="blok-card">
+       <h3 class="find-library-card">Find your Library card</h3>  
+       <div class="library-card-bg">
+       <form class="library-card-form">
+       <div class="library-card-input">
+           <span class="card-input-name">Brooklyn Public Library</span>
+           <span class="readers-name chek-card-profil">${localStorage.getItem('firstName')} ${localStorage.getItem('lastName')}</span>
+           <span class="card-number chek-card-profil">${localStorage.getItem('cardNumber')}</span>
+       </div>
+       <div class="library-card-button">
+           <button class="button-check-card" style="display: none;" >Check the card</button>
+           <ul class="info-digital-card">
+               <li class="info-digital-card-profil">
+                   <span class="info-digital-card-in">Visits</span>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                       <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+                   </svg>
+                   <span class="info-digital-card-numer">${localStorage.getItem('userVisits')}</span>
+               </li>
+               <li class="info-digital-card-profil">
+                   <span class="info-digital-card-in">Bonuses</span>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                       <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+                   </svg>
+                   <span class="info-digital-card-numer">1240</span>
+               </li>
+               <li class="info-digital-card-profil">
+                   <span class="info-digital-card-in">Books</span>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                       <rect width="20" height="21" fill="#BB945F"/>
+                       <rect x="2" width="1" height="19" fill="#826844"/>
+                       <rect x="1" width="1" height="21" fill="white"/>
+                   </svg>
+                   <span class="info-digital-card-numer">${localStorage.getItem('userBooks')}</span>
+               </li>
+           </ul>
+       </div>
+       </form>
+       </div>
+   </div>
+   <div class="get-card">
+       <h3 class="get-reader-card">Visit your profile</h3>
+       <p class="get-text-card">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+   <div class="button-sing-log">
+       <button class="button-log-in account-profil-open">Profile</button>
+   </div>
+   </div>
+</div>
+   `};
+ 
+
+  const btnClikdigLi = document.querySelector(".account-profil-open")
+
+  btnClikdigLi.addEventListener("click" , () => {
+    modalProfil.classList.toggle("menu-active");
+    
+  });
+
+ 
 
 
 

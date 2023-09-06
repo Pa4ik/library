@@ -1614,7 +1614,7 @@ body {
     .swiper-navigation-disabled .swiper-button-next,.swiper-navigation-disabled .swiper-button-prev{display:none!important}
     .swiper-button-next svg,.swiper-button-prev svg{width:100%;height:100%;object-fit:contain;transform-origin:center}
     .swiper-rtl .swiper-button-next svg,.swiper-rtl .swiper-button-prev svg{transform:rotate(180deg)}
-    .swiper-button-prev,.swiper-rtl .swiper-button-next{left:var(--swiper-navigation-sides-offset,10px);right:auto}
+    .swiper-button-prev,.swiper-rtl .swiper-button-next{left:var(--swiper-navigation-sides-offset,10px);right:auto ;}
     .swiper-button-next,.swiper-rtl .swiper-button-prev{right:var(--swiper-navigation-sides-offset,10px);left:auto}
     .swiper-button-lock{display:none}
     .swiper-button-next:after,.swiper-button-prev:after{font-family:swiper-icons;font-size:var(--swiper-navigation-size);text-transform:none!important;letter-spacing:0;font-variant:initial;line-height:1}
@@ -1699,14 +1699,14 @@ body {
  @media(max-width:895px){
  .hiden-cur{
     display: block;
-    margin: -32px 65px 1px 66px;
+    margin: 750px 65px 1px 66px;
  }
 }
 
 @media(max-width:700px){
     .hiden-cur{
       
-       margin: auto;
+        margin: 750px 65px 1px 66px;
     }
    }
 
@@ -1897,7 +1897,9 @@ top: 10px;
     left: 22px;
     transition: 0.3s;
     cursor: pointer;
+    background-color: #FFF;
 }
+
 
 .btn-rigister-profile:hover{
     border-radius: 2px;
@@ -2062,6 +2064,7 @@ top: 10px;
     left: 22px;
     transition: 0.3s;
     cursor: pointer;
+    background-color: #FFF;
 }
 
 .btn-login-profile:hover{
@@ -2126,3 +2129,354 @@ transition: 0.3s;
     border-radius: 2px;
     color: #BB945F;
 }
+
+
+.info-digital-card{
+    list-style-type: none;
+    display: flex;
+    column-gap: 20px;
+    margin: 0px;
+    /* display: none; */
+}
+
+.info-digital-card-profil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.info-digital-card-in{
+    color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 200% */
+letter-spacing: 0.2px;
+text-transform: capitalize;
+}
+
+.info-digital-card-numer{
+    color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 200% */
+letter-spacing: 0.2px;
+text-transform: capitalize;
+}
+
+.chek-card-profil{
+    color: #BB945F;
+font-family: Forum;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 50px; /* 166.667% */
+letter-spacing: 0.6px;
+}
+
+
+/* после авторизации */
+
+.profil-autro{ background-color: #fff;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+   
+    .autor-Profil{
+        color: #BB945F;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 133.333% */
+
+    }
+
+
+    .drop-menu-profile-autoriz{
+        margin: -27px;
+        margin-top: -31px;
+        width: 80px;
+        height: 115px;
+        z-index: 1;
+        background: #FFF;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s;
+        transform: translateY(-300%);
+     }
+    
+     
+    
+     .menu-active{
+        opacity: 1;
+        transition: opacity 0.5s;
+        transform: none;
+     }
+    
+     .profile-account{
+        color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 133.333% */
+     }
+    
+     .list-account-link{
+        margin: 0;
+        padding: 0;
+        list-style-type:none;
+        display: grid;
+        justify-items: center;
+        margin-top: 5px;
+        gap: 8.4px;;
+     }
+     .menu-profile{
+        margin: 0px;
+     }
+     .menu-line-account{
+     width: 40px;
+     margin: 0;
+     position: relative;
+     bottom: 5px;
+     }
+    
+    
+     .account-li{
+        color: #000;
+        text-align: center;
+        font-family: Inter;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+       line-height: 20px; /* 133.333% */
+       transition: 0.3s;
+     }
+    
+     .account-li:hover{
+        color: #BB945F;
+         background-size: 100% 2px; 
+    
+     }
+
+     .profile-account-autoriz{
+        font-size: 12px;
+     }
+
+    .account-li-autoriz{
+        font-size: 14px;
+        border: none;
+        background-color: #FFF;
+        cursor: pointer;
+     }
+
+     .modal-profil{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0, 66%);
+        top: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+        transform: translateY(-300%);
+     }
+    
+    .modal-profil-window{
+       position: fixed;
+       width: 600px;
+       height: 400px;
+       background: #FFF;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       margin: auto; 
+       display: flex;
+    justify-content: space-between;
+}
+    
+  
+
+    .menu-active{
+        opacity: 1;
+        transition: opacity 0.5s;
+        transform: none;
+     }
+
+     .left-container{
+        background-color: black;
+        width: 170px;
+        height: 403px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+     }
+
+     .initials-cont{
+        display: grid;
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+        background-color: #FFF;
+        color: #BB945F;
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        text-transform: capitalize;
+        align-items: center;
+        margin: 0;
+     }
+    
+     .name-cont{
+        min-width: 120px;
+        max-width: 150px;
+        min-height: 30px;
+        flex-shrink: 0;
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        text-transform: capitalize;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+     }
+
+     .close-container-profil{
+        margin:23px;
+        cursor: pointer;
+        position: absolute;
+    right: 0;
+     }
+     
+     .my-profil{
+        color: #000;
+        text-align: center;
+        font-family: Forum;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 50% */
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        margin-left: -250px;
+     }
+
+     .cards-profil{
+        display: flex;
+        margin-top: 40px;
+        margin-left: -88px;
+        gap: 20px;     }
+
+     .rented-books{
+        color: #0C0C0E;
+        text-align: center;
+        font-family: Inter;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 80% */
+        display: grid;
+        justify-content: start;
+        margin-left: -47px;
+    margin-top: 4px;
+     }
+
+     .card-num-cop{
+        display: flex;
+        align-items: center;
+        color: #0C0C0E;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+margin-top: 6px;
+margin-left: -48px;
+gap: 6px;
+     }
+
+     .click-copi-text{
+        cursor: pointer;
+     }
+
+     .rented-books-byu{
+        height: 100px;
+        color: #000;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+letter-spacing: 2px;
+text-transform: capitalize;
+display: grid;
+height: 71px;
+position: relative;
+right: 58px;
+top: 8px;
+width: 322px;
+overflow: auto;
+white-space: nowrap;
+     }
+
+
+    .rights-container{
+     display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    }
+
+    .profil-info-visits{
+        color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+letter-spacing: 0.4px;
+text-transform: capitalize;
+    }
+
+    .info-profil-gap{
+        gap:10px
+    }
+
+
+    .click-copi{
+        cursor: pointer;
+        color: #BB945F;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+outline: 0;
+    border: 0;
+    width: 113px;
+    }
