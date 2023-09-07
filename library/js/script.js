@@ -333,6 +333,7 @@ document.querySelector('.btn-rigister-profile').addEventListener('click', functi
       localStorage.setItem('userVisits', 1);
       localStorage.setItem('userRegistered' ,true);
       localStorage.setItem('userAuthorized', true);
+      // localStorage.setItem('userLibraryCard', false);
       //  Перенаправляем на другую страницу или делаем другую логику
       location.reload();
     }
@@ -385,15 +386,56 @@ function generateCardNumber() {
      }
    });
    
-   // открытие логина на покупке книг 
+
+
+
+// модалка Lib card
+
+const closeModalLibCard = document.querySelector(".close-modal-librarycard")
+
+   // открытие логина на покупке книг при не авторизации 
    const loginByuBook = document.querySelectorAll(".buy-book")
+  //  loginByuBook?.forEach(button => {
+  //    button.addEventListener("click", () =>{
+  //      menulogin?.classList.toggle("menu-active");
+  //    })
+  //  })
+   // открытие покупки карточки если пользыватель авторизирован 
+   const modalLibCard = document.querySelector(".modal-librarycard")
+
+   if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'){
+    loginByuBook?.forEach(button => {
+      button.addEventListener("click", () =>{
+        modalLibCard?.classList.toggle("menu-active");
+      })
+    }) 
+   }else{
+    loginByuBook?.forEach(button => {
+      button.addEventListener("click", () =>{
+        menulogin?.classList.toggle("menu-active");
+      })
+    })
+   }
+
+   //// модалка Lib card
+
    
-   loginByuBook?.forEach(button => {
-     button.addEventListener("click", () =>{
-       menulogin?.classList.toggle("menu-active");
-     })
-   })
-   
+
+   window.addEventListener ("keydown", function(event){
+    if (event.keyCode === 27){
+      modalLibCard?.classList.remove("menu-active");
+    }
+  })
+  
+  closeModalLibCard.addEventListener('click' , () =>{
+    modalLibCard?.classList.remove("menu-active");
+  })
+  
+  window.addEventListener('click', (event) => {
+    if (event.target === modalLibCard) {
+      modalLibCard?.classList.remove('menu-active');
+    }
+  });
    
    // переглючения модалок рег и лог 
    const btnReg = document.querySelector(".btn-register")
@@ -675,13 +717,29 @@ logInButton.addEventListener("click", function(event) {
       document.querySelector('.error-login').classList.add('show-error');
     } else {
       document.querySelector('.error-login').classList.remove('show-error');
+      
     }
+   
   }
 });
 
 emailLogin.addEventListener("input", function() {
   document.querySelector('.error-login').classList.remove('show-error');
 });
+
+
+// проверка перед входом данных 
+logInButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  if (emailLogin.value !== '') {
+    if (emailUser !== emailLogin.value && cardNumberUser !== emailLogin.value || passUser !== passwordLogin.value ) {
+    } else {
+    location.reload()
+    }
+   
+  }
+});
+
 
 // проверка пароля на правильность 
 logInButton.addEventListener("click", function(event) {
@@ -714,6 +772,37 @@ passwordLoginLeng.forEach(input => {
     }
   });
 });
+
+if (emailUser !== emailLogin.value && cardNumberUser !== emailLogin.value || passUser !== passwordLogin.value ){
+  logInButton?.addEventListener("click" , () => {
+    localStorage.setItem('userAuthorized', true);
+                  //увелечение значения счетчика заходов 
+             // Получаем текущее значение из localStorage
+             let userVisits = localStorage.getItem('userVisits');
+             // Проверяем, есть ли уже значение в localStorage
+             if (userVisits === null) {
+               // Если значения нет, устанавливаем его равным 1
+               userVisits = 1;
+             } else {
+               // Если значение есть, увеличиваем его на 1
+               userVisits = parseInt(userVisits) + 1;
+             }
+             // Обновляем значение в localStorage
+             localStorage.setItem('userVisits', userVisits.toString());
+             // Функция, которая будет выполняться при клике на кнопку
+             function increaseUserVisits() {
+               // Увеличиваем значение в localStorage
+               userVisits = parseInt(localStorage.getItem('userVisits')) + 1;
+               // Обновляем значение в localStorage
+               localStorage.setItem('userVisits', userVisits.toString());
+             }
+             // Назначаем функцию увеличения значения на событие "click" кнопки
+             logInButton.addEventListener('click', increaseUserVisits);          
+    // location.reload()
+   });
+}
+
+
 
 
 // ЭТАП 4
@@ -779,6 +868,7 @@ modalProfil.addEventListener('click', (event) => {
   const logOutbtn = document.querySelector('.account-log-out')
   logOutbtn?.addEventListener("click" , () => {
     localStorage.removeItem('userAuthorized');
+   
     location.reload()
    });
 
@@ -988,6 +1078,11 @@ div.addEventListener('click', function() {
     modalProfil.classList.toggle("menu-active");
     
   });
+
+
+  // покупка кник
+
+
 
  
 

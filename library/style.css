@@ -2480,3 +2480,183 @@ outline: 0;
     border: 0;
     width: 113px;
     }
+
+
+
+    .modal-librarycard{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0, 66%);
+        top: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+        transform: translateY(-300%);
+     }
+    
+    .modal-librarycard-window{
+       position: fixed;
+       width: 650px;
+       height: 540px;
+       background: #FFF;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       margin: auto; 
+    }
+
+    .menu-active{
+        opacity: 1;
+        transition: opacity 0.5s;
+        transform: none;
+     }
+
+
+     input::-webkit-outer-spin-button,
+     input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+    }
+
+    .name-byu-library-card{
+        width: 650px;
+        height: 60px;
+        flex-shrink: 0;
+        background: #0C0C0E;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+
+    .buy-a-library-card{color: #FFF;
+        text-align: center;
+        font-family: Forum;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 50% */
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+    }
+
+    .close-modal-librarycard{
+        position: absolute;
+        right: 0;
+        margin: 23px;
+    }
+
+    .buy-library-card-form{
+        display: flex;
+        
+        margin: 30px 40px 40px 40px;
+        justify-content: flex-start;
+
+    }
+
+    .form-librarycard{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+
+    .name-form-librarycard{
+        color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 133.333% */
+letter-spacing: 0.3px;
+margin-bottom: 10px;
+    }
+
+    .input-librarycard{
+        border: 1px solid #BB945F;
+    }
+
+
+    .price-buy-librarycard{
+        color: #0C0C0E;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 20px; /* 100% */
+letter-spacing: 2px;
+text-transform: uppercase;
+    }
+
+    .btn-buy-librarycard{
+        border-radius: 2px;
+border: 1px solid #0C0C0E;
+color: #0C0C0E;
+text-align: center;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1px;
+width: 75px;
+height: 30px;
+flex-shrink: 0;
+
+    }
+
+    .input-librarycard-widht1{
+width: 200px;
+height: 20px;
+flex-shrink: 0;
+    }
+
+    .input-librarycard-widht2{
+width: 45px;
+height: 20px;
+flex-shrink: 0;
+    }
+
+    .form-librarycard-label{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .librarycard-descriptions{
+        padding-left: 35px;
+    }
+
+    .btn-librarycard{
+        display: flex;
+        margin-top: 8px;
+        gap: 25px;
+        align-items: flex-end;
+    }
+    .close-modal-librarycard{
+      cursor: pointer;
+    }
+
+    .about-buy-card{
+        width: 330px;
+        color: #8E8E8E;
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 133.333% */
+letter-spacing: 2px;
+    }
+
+    .menu-active{
+        opacity: 1;
+        transition: opacity 0.5s;
+        transform: none;
+     }
