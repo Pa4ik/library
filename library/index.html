@@ -731,33 +731,46 @@
                         </div>
                         <div class="buy-library-card-form">
                             <div class="form-buy-librarycard">  
-                                  <form class="form-librarycard">
+                                  <form class="form-librarycard" name="myform">
                                           <label class="form-librarycard-label">
                                             <span class="name-form-librarycard">Bank card number</span>
-                                            <input type="number" step="0.01"  class="input-librarycard input-librarycard-widht1" >
+                                            <input type="text" name="cardcode" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" step="0.01"  class="input-librarycard input-cardcode input-librarycard-widht1" >
+                                            <span class="text-error-buycard fill-error-buy">Fill in this field</span>
+                                            <span class="text-error-buycard digits-card-error">The card number must consist of 16 digits.</span>
                                           </label>
-                                          <label class="form-librarycard-label">
+                                          <label class="form-librarycard-label" >
                                             <span class="name-form-librarycard">Expiration code</span>
-                                            <div class="two-input-expiration code">
-                                                <input type="number" step="0.01"  class="input-librarycard input-librarycard-widht2" >
-                                                <input type="number" step="0.01"  class="input-librarycard input-librarycard-widht2" >
+                                            <div class="two-input-expiration code" name="datadiv">
+                                                <input type="text" name="datacardmo"  step="0.01"  class="input-librarycard input-date-mount input-librarycard-widht2" >
+                                                <span class="text-error-buycard buycard-div-mount fill-error-buy">Field</span>
+                                                <span class="text-error-buycard buycard-div-year date-error-mount">2 digits</span>
+                                                <input type="text" name="datacardyear"  step="0.01"  class="input-librarycard input-date-year input-librarycard-widht2" >
+                                                <span class="text-error-buycard buycard-div-year fill-error-buy">Field</span>
+                                                <span class="text-error-buycard buycard-div-year date-error-year">2 digits</span>
+                                                <!-- <span class="text-error-buycard fill-error-buy"> The card's expiration date code must contain 2 digits.</span> -->
                                             </div>
                                           </label>
                                           <label class="form-librarycard-label">
                                             <span class="name-form-librarycard">CVC</span>
-                                            <input type="number"  step="0.01" class="input-librarycard input-librarycard-widht2" >
+                                            <input type="text" name="cvc" step="0.01" class="input-librarycard input-cvc input-librarycard-widht2" >
+                                            <span class="text-error-buycard fill-error-buy">Fill in this field</span>
+                                            <span class="text-error-buycard cvc-error">CVC code must consist of 3 digits.</span>
                                           </label>
                                           <label class="form-librarycard-label">
                                             <span class="name-form-librarycard">Cardholder name</span>
-                                            <input type="text" class="input-librarycard input-librarycard-widht1" >
+                                            <input type="text" class="input-librarycard input-cardholder-name input-librarycard-widht1" onkeypress="noDigits(event)">
+                                            <span class="text-error-buycard fill-error-buy">Fill in this field</span>
                                           </label>
                                           <label class="form-librarycard-label">
                                             <span class="name-form-librarycard">Postal code</span>
-                                            <input type="number" step="0.01" class="input-librarycard input-librarycard-widht1" >
+                                            <input type="text" name="postalcode" step="0.01" class="input-librarycard input-postal-code input-librarycard-widht1" >
+                                            <span class="text-error-buycard fill-error-buy">Fill in this field</span>
+                                            <span class="text-error-buycard postal-code-error">Postal code must consist of 6 digits</span>
                                           </label>
                                           <label class="form-librarycard-label">
                                             <span class="name-form-librarycard ">City / Town</span>
-                                            <input type="text" class="input-librarycard input-librarycard-widht1" >
+                                            <input type="text"  class="input-librarycard input-city-town input-librarycard-widht1" onkeypress="noDigits(event)" >
+                                            <span class="text-error-buycard fill-error-buy">Fill in this field</span>
                                           </label>
                                           <div class="btn-librarycard">
                                             <button class="btn-buy-librarycard" type="submit">Buy</button>
@@ -777,6 +790,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="js/script.js" ></script>
-    <script src="js/index.js"></script>   
+    <script src="js/index.js"></script>
 </body>
 </html>

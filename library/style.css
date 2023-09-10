@@ -2609,6 +2609,13 @@ letter-spacing: 1px;
 width: 75px;
 height: 30px;
 flex-shrink: 0;
+cursor: pointer;
+    }
+
+    .btn-buy-librarycard:hover{
+        border-radius: 2px;
+       border: 1px solid #BB945F;
+       background: #BB945F;
 
     }
 
@@ -2660,3 +2667,27 @@ letter-spacing: 2px;
         transition: opacity 0.5s;
         transform: none;
      }
+
+    
+     .text-error-buycard{
+        position: absolute;
+    margin-top: 53px;
+    font-size: 10px;
+    color: red;
+    font-family: Inter;
+    opacity: 0;
+     }
+
+     .buycard-div-mount{
+        margin-top: 23px;
+        margin-left: -55px;
+     }
+
+     .buycard-div-year{
+        margin-top: 23px;
+        margin-left: -49px;
+     }
+
+     .show-error{
+        opacity: 1;
+    }

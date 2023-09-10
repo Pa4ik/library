@@ -1080,17 +1080,199 @@ div.addEventListener('click', function() {
   });
 
 
-  // покупка кник
+  // покупка карточки библеотеки 
+   
+
+                             //заполниность карточки ......
+  //Длина номера карты
+  var cc = myform.cardcode;
+  for (var i in ['input', 'change', 'blur', 'keyup']) {
+      cc.addEventListener('input', formatCardCode, false);
+  }
+  function formatCardCode() {
+      var cardCode = this.value.replace(/[^\d]/g, '').substring(0,16);
+      cardCode = cardCode != '' ? cardCode.match(/.{1,4}/g).join(' ') : '';
+      this.value = cardCode;
+  }
+
+  //длина даты 
+
+  var datacar = myform.datacardmo;
+  for (var i in ['input', 'change', 'blur', 'keyup']) {
+    datacar.addEventListener('input', formatDataCardmo, false);
+  }
+  function formatDataCardmo() {
+      var datacardmo = this.value.replace(/[^\d]/g, '').substring(0,2);
+      this.value = datacardmo;
+  }
+
+  var datacardyears = myform.datacardyear;
+  for (var i in ['input', 'change', 'blur', 'keyup']) {
+    datacardyears.addEventListener('input', formatDataCardYear, false);
+  }
+  function formatDataCardYear() {
+      var datacardyear = this.value.replace(/[^\d]/g, '').substring(0,2);
+      this.value = datacardyear;
+  }
+
+  //длина cv
+  var cvc = myform.cvc;
+  for (var i in ['input', 'change', 'blur', 'keyup']) {
+    cvc.addEventListener('input', formatDataCard, false);
+  }
+  function formatDataCard() {
+      var cvc = this.value.replace(/[^\d]/g, '').substring(0,3);
+      this.value = cvc;
+  }
+
+  //длина Postal Code
+  var postCode = myform.postalcode;
+  for (var i in ['input', 'change', 'blur', 'keyup']) {
+    postCode.addEventListener('input', formatPostalCode, false);
+  }
+  function formatPostalCode() {
+      var postalcode = this.value.replace(/[^\d]/g, '').substring(0,6);
+      this.value = postalcode;
+  }
 
 
 
+
+  // Проверка карточки 
+  // на пустоту
+
+  // Получить все элементы input
+const inputsBuyCard = document.getElementsByClassName("input-librarycard");
+const errorSpansBuyCard  = document.getElementsByClassName("fill-error-buy");
+const buyCardButton = document.querySelector(".btn-buy-librarycard");
+
+// Отслеживать событие нажатия на кнопку buy
+buyCardButton.addEventListener("click", function(event) {
+  // event.preventDefault();
+
+  for (let i = 0; i < inputsBuyCard.length; i++) {
+    if (inputsBuyCard[i].value.trim() === "") {
+      errorSpansBuyCard[i].classList.add("show-error");
+    } else {
+      errorSpansBuyCard[i].classList.remove("show-error");
+    }
+  }
+});
+
+// Отслеживать событие ввода в поля ввода и удалять класс show-error
+for (let i = 0; i < inputsBuyCard.length; i++) {
+  inputsBuyCard[i].addEventListener("input", function() {
+    errorSpansBuyCard[i].classList.remove("show-error");
+  });
+}
+
+
+
+  // на правильную заполненость 
+ // на длину карты 
+  const inputCardCode = document.querySelectorAll(".input-cardcode")
+
+inputCardCode.forEach(input => {
+  input.addEventListener('input', () => {
+    const cardError = input.parentNode.querySelector('.digits-card-error');
+    if (input.value.length < 19) {
+      cardError.classList.add('show-error');
+    } else {
+      cardError.classList.remove('show-error');
+    }
+  });
+});
+
+// на длину даты 
+// месяц
+const inputDataMount = document.querySelectorAll(".input-date-mount")
+
+inputDataMount.forEach(input => {
+  input.addEventListener('input', () => {
+    const dateErrorMount = input.parentNode.querySelector('.date-error-mount');
+    if (input.value.length < 2 && input.value.length > 0 ) {
+      dateErrorMount.classList.add('show-error');
+    } else {
+      dateErrorMount.classList.remove('show-error');
+    }
+  });
+});
+//год
+const inputDataYear = document.querySelectorAll(".input-date-year")
+
+inputDataYear.forEach(input => {
+  input.addEventListener('input', () => {
+    const dateErrorYear = input.parentNode.querySelector('.date-error-year');
+    if (input.value.length < 2 && input.value.length > 0 ) {
+      dateErrorYear.classList.add('show-error');
+    } else {
+      dateErrorYear.classList.remove('show-error');
+    }
+  });
+});
  
+//длину cvc 
+
+const inputCvc = document.querySelectorAll(".input-cvc")
+
+inputCvc.forEach(input => {
+  input.addEventListener('input', () => {
+    const cvcError = input.parentNode.querySelector('.cvc-error');
+    if (input.value.length < 3 && input.value.length > 0 ) {
+      cvcError.classList.add('show-error');
+    } else {
+      cvcError.classList.remove('show-error');
+    }
+  });
+});
+
+//длину Postal code
+
+const inputPostalCode = document.querySelectorAll(".input-postal-code")
+
+inputPostalCode.forEach(input => {
+  input.addEventListener('input', () => {
+    const postalCodeError = input.parentNode.querySelector('.postal-code-error');
+    if (input.value.length < 6 && input.value.length > 0 ) {
+      postalCodeError.classList.add('show-error');
+    } else {
+      postalCodeError.classList.remove('show-error');
+    }
+  });
+});
 
 
+   //запрет на ввод цифр в имя
+   function noDigits(event) {
+    if ("1234567890".indexOf(event.key) != -1)
+      event.preventDefault();
+  }
 
 
+// //сохранения данных  localStorage карточки 
 
+document.querySelector('.btn-buy-librarycard').addEventListener('click', function(e) {
+  e.preventDefault(); // отменяем отправку формы
 
+  //   // Получаем значения полей ввода
+  const cardholderName = document.querySelector('.input-cardholder-name').value;
+  const cityTown = document.querySelector('.input-city-town').value;
+  const inputsBuyCard = document.querySelector('.input-cardcode').value;
+  const inputDataMount = document.querySelector('.input-date-mount').value;
+  const inputDataYear = document.querySelector('.input-date-year').value;
+  const inputCvc = document.querySelector('.input-cvc').value;
+  const inputPostalCode = document.querySelector('.input-postal-code').value;
+
+// Проверяем, есть ли пустые поля
+  if (inputsBuyCard.trim() !== '' && inputDataMount.trim() !== '' && inputDataYear.trim() !== '' && inputCvc.trim() !== '' && cardholderName.trim() !== '' && inputPostalCode.trim() !== '' && cityTown.trim() !== '') {
+    // Проверяем, нет ли ошибок введенных данных
+    if (!document.querySelector('.digits-card-error.show-error') && !document.querySelector('.date-error-mount.show-error') && !document.querySelector('.date-error-year.show-error') && !document.querySelector('.cvc-error.show-error') && !document.querySelector('.postal-code-error.show-error')) {
+      localStorage.setItem('userLibraryCard', true);
+      //  Перенаправляем на другую страницу или делаем другую логику
+      location.reload();
+    }
+  }
+});
 
 
 
