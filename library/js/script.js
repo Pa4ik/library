@@ -294,7 +294,7 @@ const passErrorElement = document.querySelector('.pass-error');
 nameInputs.forEach(input => {
   input.addEventListener('input', () => {
     const passError = input.parentNode.querySelector('.pass-error');
-    if (input.value.length <= 8 && input.value.length > 0) {
+    if (input.value.length < 8 && input.value.length > 0) {
       passError.classList.add('show-error');
     } else {
       passError.classList.remove('show-error');
@@ -333,7 +333,7 @@ document.querySelector('.btn-rigister-profile').addEventListener('click', functi
       localStorage.setItem('userVisits', 1);
       localStorage.setItem('userRegistered' ,true);
       localStorage.setItem('userAuthorized', true);
-      // localStorage.setItem('userLibraryCard', false);
+      localStorage.setItem('userLibraryCard', false);
       //  Перенаправляем на другую страницу или делаем другую логику
       location.reload();
     }
@@ -403,19 +403,47 @@ const closeModalLibCard = document.querySelector(".close-modal-librarycard")
    // открытие покупки карточки если пользыватель авторизирован 
    const modalLibCard = document.querySelector(".modal-librarycard")
 
-   if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'){
-    loginByuBook?.forEach(button => {
-      button.addEventListener("click", () =>{
-        modalLibCard?.classList.toggle("menu-active");
-      })
-    }) 
-   }else{
-    loginByuBook?.forEach(button => {
-      button.addEventListener("click", () =>{
-        menulogin?.classList.toggle("menu-active");
-      })
+ //модалки на покупке книг 
+const ofBuyBook = document.querySelectorAll(".btn-byu-book")
+//покупка карты
+if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true' && localStorage.getItem('userLibraryCard') === 'false' ){
+  loginByuBook?.forEach(button => {
+    button.addEventListener("click", () =>{
+      modalLibCard?.classList.toggle("menu-active");
     })
-   }
+  }) 
+  //покупка книг
+ } else if(localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'&& localStorage.getItem('userLibraryCard') === 'true'){
+    const selectedButtons = [];
+    ofBuyBook.forEach(function(event) {
+      event.addEventListener("click", function(e) {
+        // Проверяем, есть ли уже такой идентификатор в массиве
+        if (!selectedButtons.includes(event.id)) {
+          // Добавляем идентификатор кнопки в массив
+          selectedButtons.push(event.id);
+    
+          // Продолжаем остальные действия
+          event.innerHTML = '<div class="btn-byu-book"> <button class="buy-book-off" disabled>Own</button></div>';
+    
+          let userBooksOwn = localStorage.getItem('userBooks');
+          userBooksOwn++
+          localStorage.setItem('userBooks', userBooksOwn);
+          localStorage.setItem("selected_buttons", JSON.stringify(selectedButtons));
+        }
+      });
+    });
+
+ }
+//модалка логина
+  else{
+  
+     loginByuBook?.forEach(button => {
+     button.addEventListener("click", () =>{
+       menulogin?.classList.toggle("menu-active");
+     })
+   })
+  }
+ 
 
    //// модалка Lib card
 
@@ -734,7 +762,33 @@ logInButton.addEventListener("click", function(event) {
   if (emailLogin.value !== '') {
     if (emailUser !== emailLogin.value && cardNumberUser !== emailLogin.value || passUser !== passwordLogin.value ) {
     } else {
-    location.reload()
+      
+      logInButton?.addEventListener("click" , () => {
+        localStorage.setItem('userAuthorized', true);
+                      //увелечение значения счетчика заходов 
+                 // Получаем текущее значение из localStorage
+                 let userVisits = localStorage.getItem('userVisits');
+                 // Проверяем, есть ли уже значение в localStorage
+                 if (userVisits === null) {
+                   // Если значения нет, устанавливаем его равным 1
+                   userVisits = 1;
+                 } else {
+                   // Если значение есть, увеличиваем его на 1
+                   userVisits = parseInt(userVisits) + 1;
+                 }
+                 // Обновляем значение в localStorage
+                 localStorage.setItem('userVisits', userVisits.toString());
+                 // Функция, которая будет выполняться при клике на кнопку
+                 function increaseUserVisits() {
+                   // Увеличиваем значение в localStorage
+                   userVisits = parseInt(localStorage.getItem('userVisits')) + 1;
+                   // Обновляем значение в localStorage
+                   localStorage.setItem('userVisits', userVisits.toString());
+                 }
+                 // Назначаем функцию увеличения значения на событие "click" кнопки
+                 logInButton.addEventListener('click', increaseUserVisits);          
+        location.reload()
+       });
     }
    
   }
@@ -765,7 +819,7 @@ const passwordLoginLeng = document.querySelectorAll('.input-login-modal');
 passwordLoginLeng.forEach(input => {
   input.addEventListener('input', () => {
     const passLogin = input.parentNode.querySelector('.pass-error-login');
-    if (input.value.length <= 8 && input.value.length > 0) {
+    if (input.value.length < 8 && input.value.length > 0) {
       passLogin.classList.add('show-error');
     } else {
       passLogin.classList.remove('show-error');
@@ -773,34 +827,34 @@ passwordLoginLeng.forEach(input => {
   });
 });
 
-if (emailUser !== emailLogin.value && cardNumberUser !== emailLogin.value || passUser !== passwordLogin.value ){
-  logInButton?.addEventListener("click" , () => {
-    localStorage.setItem('userAuthorized', true);
-                  //увелечение значения счетчика заходов 
-             // Получаем текущее значение из localStorage
-             let userVisits = localStorage.getItem('userVisits');
-             // Проверяем, есть ли уже значение в localStorage
-             if (userVisits === null) {
-               // Если значения нет, устанавливаем его равным 1
-               userVisits = 1;
-             } else {
-               // Если значение есть, увеличиваем его на 1
-               userVisits = parseInt(userVisits) + 1;
-             }
-             // Обновляем значение в localStorage
-             localStorage.setItem('userVisits', userVisits.toString());
-             // Функция, которая будет выполняться при клике на кнопку
-             function increaseUserVisits() {
-               // Увеличиваем значение в localStorage
-               userVisits = parseInt(localStorage.getItem('userVisits')) + 1;
-               // Обновляем значение в localStorage
-               localStorage.setItem('userVisits', userVisits.toString());
-             }
-             // Назначаем функцию увеличения значения на событие "click" кнопки
-             logInButton.addEventListener('click', increaseUserVisits);          
-    // location.reload()
-   });
-}
+// if (emailUser !== emailLogin.value && cardNumberUser !== emailLogin.value || passUser !== passwordLogin.value ){
+//   logInButton?.addEventListener("click" , () => {
+//     localStorage.setItem('userAuthorized', true);
+//                   //увелечение значения счетчика заходов 
+//              // Получаем текущее значение из localStorage
+//              let userVisits = localStorage.getItem('userVisits');
+//              // Проверяем, есть ли уже значение в localStorage
+//              if (userVisits === null) {
+//                // Если значения нет, устанавливаем его равным 1
+//                userVisits = 1;
+//              } else {
+//                // Если значение есть, увеличиваем его на 1
+//                userVisits = parseInt(userVisits) + 1;
+//              }
+//              // Обновляем значение в localStorage
+//              localStorage.setItem('userVisits', userVisits.toString());
+//              // Функция, которая будет выполняться при клике на кнопку
+//              function increaseUserVisits() {
+//                // Увеличиваем значение в localStorage
+//                userVisits = parseInt(localStorage.getItem('userVisits')) + 1;
+//                // Обновляем значение в localStorage
+//                localStorage.setItem('userVisits', userVisits.toString());
+//              }
+//              // Назначаем функцию увеличения значения на событие "click" кнопки
+//              logInButton.addEventListener('click', increaseUserVisits);          
+//     location.reload()
+//    });
+// }
 
 
 
@@ -1275,4 +1329,125 @@ document.querySelector('.btn-buy-librarycard').addEventListener('click', functio
 });
 
 
+
+
+// //модалки на покупке книг 
+// const ofBuyBook = document.querySelectorAll(".btn-byu-book")
+// //покупка карты
+// if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true' && localStorage.getItem('userLibraryCard') === 'false' ){
+//   loginByuBook?.forEach(button => {
+//     button.addEventListener("click", () =>{
+//       modalLibCard?.classList.toggle("menu-active");
+//     })
+//   }) 
+//   //покупка книг
+//  } else if(localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'&& localStorage.getItem('userLibraryCard') === 'true'){
+//   ofBuyBook.forEach(function(event) {
+//   event.addEventListener("click", function(e) {
+//     event.innerHTML = `<div class="btn-byu-book"> <button class="buy-book-off">Own</button></div>` 
+//     let userBooksOwn = localStorage.getItem('userBooks');
+//     userBooksOwn++
+//     localStorage.setItem('userBooks', userBooksOwn);   
+//   });
+// });
+// //модалка логина
+//  } else{
+  
+//      loginByuBook?.forEach(button => {
+//      button.addEventListener("click", () =>{
+//        menulogin?.classList.toggle("menu-active");
+//      })
+//    })
+//   }
+ 
+
+
+
+
+
+
+
+
+
+
+
+// // модалки на покупке книг 
+// const ofBuyBook = document.querySelectorAll(".btn-byu-book")
+// //покупка карты
+// if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true' && localStorage.getItem('userLibraryCard') === 'false' ){
+//   loginByuBook?.forEach(button => {
+//     button.addEventListener("click", () =>{
+//       modalLibCard?.classList.toggle("menu-active");
+//     })
+//   }) 
+//   //покупка книг
+//  } else if(localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'&& localStorage.getItem('userLibraryCard') === 'true'){
+//   const selectedButtons = [];
+
+//   ofBuyBook.forEach(function(event) {
+//     event.addEventListener("click", function(e) {
+//       // Проверяем, есть ли уже такой идентификатор в массиве
+//       if (!selectedButtons.includes(event.id)) {
+//         // Добавляем идентификатор кнопки в массив
+//         selectedButtons.push(event.id);
+  
+//         // Продолжаем остальные действия
+//         event.innerHTML = '<div class="btn-byu-book"> <button class="buy-book-off">Own</button></div>';
+  
+//         let userBooksOwn = localStorage.getItem('userBooks');
+//         userBooksOwn++
+//         localStorage.setItem('userBooks', userBooksOwn);
+//         localStorage.setItem("selected_buttons", JSON.stringify(selectedButtons));
+//       }
+//     });
+//   });
+  
+// //модалка логина
+//  } else{
+  
+//      loginByuBook?.forEach(button => {
+//      button.addEventListener("click", () =>{
+//        menulogin?.classList.toggle("menu-active");
+//      })
+//    })
+//   }
+ 
+
+
+
+ //сохранения состояния кнопки
+// Получаем сохраненные кнопки из localStorage
+let selectedButtons = JSON.parse(localStorage.getItem("selected_buttons")) || [];
+ofBuyBook.forEach(function(event) {
+
+  // Проверяем, выбрана ли кнопка
+  const isButtonSelected = selectedButtons.includes(event.id);
+
+if (isButtonSelected) { // Если кнопка была выбрана
+    event.innerHTML = '<div class="btn-byu-book"> <button class="buy-book-off" disabled>Own</button></div>';
+  }
+event.addEventListener("click", function(e) {
+    if (isButtonSelected) { // Если кнопка уже была выбрана, то удаляем ее из массива
+     
+    } else if (localStorage.getItem('userRegistered') === 'true' && localStorage.getItem('userAuthorized') === 'true'&& localStorage.getItem('userLibraryCard') === 'true') {
+      // Добавляем идентификатор кнопки в массив
+      selectedButtons.push(event.id);
+      // Изменяем внешний вид кнопки при выборе
+      event.innerHTML = '<div class="btn-byu-book"> <button class="buy-book-off" disabled>Own</button></div>';
+    }
+    // Сохраняем массив выбранных кнопок в localStorage
+    localStorage.setItem("selected_buttons", JSON.stringify(selectedButtons));
+  });
+});
+
+
+
+//  ofBuyBook.forEach(function(event) {
+//   event.addEventListener("click", function(e) {
+//     event.innerHTML = `<div class="btn-byu-book"> <button class="buy-book-off">Own</button></div>` 
+    // let userBooksOwn = localStorage.getItem('userBooks');
+    // userBooksOwn++
+    // localStorage.setItem('userBooks', userBooksOwn);   
+//   });
+// });
 

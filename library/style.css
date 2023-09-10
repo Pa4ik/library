@@ -753,7 +753,7 @@ body {
     margin: auto;
    }
    
-   /* .buy-book-off{
+   .buy-book-off{
        width: 75px;
       height: 30px;
       flex-shrink: 0;
@@ -768,15 +768,16 @@ body {
       font-weight: 700;
       line-height: normal;
       letter-spacing: 1px;
-      position: absolute;
-      margin-left: -181px; 
-   }
+      margin-left: 19px;
+      pointer-events:none  }
+
+   
    
    .buy-book-off:disabled{
        border-radius: 2px;
        border: 1px solid #BB945F;
-       background: #BB945F;
-   } */
+      
+   }
    
    .buy-book:hover{
        border-radius: 2px;
@@ -2688,6 +2689,14 @@ letter-spacing: 2px;
         margin-left: -49px;
      }
 
+   
+
      .show-error{
         opacity: 1;
     }
+
+    .menu-active{
+        opacity: 1;
+        transition: opacity 0.5s;
+        transform: none;
+     }
